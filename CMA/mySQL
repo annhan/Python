@@ -1,0 +1,143 @@
+import MySQLdb
+
+#######################################################
+## DataBase  #########################################
+######################################################
+
+TABLES_CREATE = {}
+TABLES_CREATE['Daikin'] = (
+        """CREATE TABLE Daikin(
+         mode  CHAR(20) NOT NULL,
+         boudrate  INT,
+         slave_address INT,  
+         timeout FLOAT)""")
+TABLES_CREATE['infor_network'] = (
+        """CREATE TABLE infor_network(
+         ip  CHAR(20) NOT NULL,
+         gateway  CHAR(16),
+         subnet  CHAR(16),
+         wifi_name CHAR(30),  
+         wifi_password CHAR(60))""")
+TABLES_CREATE['infor_network_wifi'] = (
+        """CREATE TABLE infor_network_wifi(
+         ip  CHAR(20) NOT NULL,
+         gateway  CHAR(16),
+         subnet  CHAR(16),
+         wifi_name CHAR(30),  
+         wifi_password CHAR(60))""")
+TABLES_CREATE['HC2'] = (
+        """CREATE TABLE HC2(
+         ipHC2  CHAR(20) NOT NULL,
+         userHC2  CHAR(50),
+         passwordHC2  CHAR(50),
+         bien1_HC2 CHAR(16),
+         bien_HC2 CHAR(16))""")
+TABLES_CREATE['Name_Zone'] = (
+        """CREATE TABLE Name_Zone(
+         Zone1  CHAR(20) NOT NULL,
+         Zone2  CHAR(20),
+         Zone3  CHAR(20),
+         Zone4  CHAR(20),
+         Zone5  CHAR(20),
+         Zone6  CHAR(20),
+         Zone7  CHAR(20),
+         Zone8  CHAR(20),
+         Zone9  CHAR(20),
+         Zone10  CHAR(20),
+         Zone11  CHAR(20),
+         Zone12  CHAR(20),
+         Zone13  CHAR(20),
+         Zone14  CHAR(20),
+         Zone15  CHAR(20),
+         Zone16  CHAR(20))""")
+TABLES_CREATE['Serial_Raspberry'] = (
+        """CREATE TABLE Serial_Raspberry(
+         So_Serial  CHAR(50) NOT NULL)""")
+TABLES_INSERT = {}
+TABLES_INSERT['Daikin'] = (
+        "INSERT INTO Daikin(mode,boudrate,slave_address,timeout) VALUES ('%s','%d','%d','%f')"%('rtu', modbus_boudrate, modbus_address, modbus_timeout))
+TABLES_INSERT['infor_network'] = (
+        "INSERT INTO infor_network(ip,gateway,subnet,wifi_name,wifi_password) VALUES ('%s','%s','%s','%s','%s')"%(ip_address, ip_gateway, ip_subnet, 'mHomeBH','123789456'))
+TABLES_INSERT['infor_network_wifi'] = (
+        "INSERT INTO infor_network_wifi(ip,gateway,subnet,wifi_name,wifi_password) VALUES ('%s','%s','%s','%s','%s')"%(wifi_ip_address, wifi_ip_gateway, ip_subnet, 'mHomeBH','123789456'))
+
+TABLES_INSERT['HC2'] = (
+        "INSERT INTO HC2(ipHC2,userHC2,passwordHC2,bien1_HC2,bien_HC2) VALUES ('%s','%s','%s','%s','%s')"%("192.168.99.10", "admin", "chotronniemvui", "Daikin1","Daikin2"))
+TABLES_INSERT['Name_Zone'] = (
+        "INSERT INTO Name_Zone(Zone1,Zone2,Zone3,Zone4,Zone5,Zone6,Zone7,Zone8,Zone9,Zone10,Zone11,Zone12,Zone13,Zone14,Zone15,Zone16) VALUES ('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')"%("None","None","None","None","None","None","None","None","None","None","None","None","None","None","None","None"))
+TABLES_INSERT['Serial_Raspberry'] = (
+        "INSERT INTO Serial_Raspberry(So_Serial) VALUES ('%s')"%("00000000aee33ffb"))
+
+def load_database():
+    global Daikin1,ma_serial,wifi_ip_gateway,wifi_ip_address,ssid,wpa_password
+    global modbus_timeout,modbus_address,modbus_boudrate,ip_gateway,ip_address,ip_subnet,ip_HC2,HC2_user,HC2_password,HC2_global1,HC2_global2
+    db = MySQLdb.connect("localhost", "root", "root", "Daikin")
+    cursor = db.cursor()
+    for name, ddl in TABLES_CREATE.iteritems():
+        print(name)
+        try:
+
+            cursor.execute(ddl)
+            db.commit()
+            cursor.execute(TABLES_INSERT[name])
+            db.commit()
+            print("Creating table {}: ".format(name))
+        except :
+            db.rollback()
+            sql = "SELECT * FROM {}".format(name)
+            cursor.execute(sql)
+            results = cursor.fetchall()
+            variable_loadata=0
+            for row in results:
+                if name=="Daikin":
+                    modbus_boudrate,modbus_address,modbus_timeout=int(row[1]),int(row[2]),row[3]
+                elif name=="HC2":
+                    ip_HC2, HC2_user, HC2_password,HC2_global1,HC2_global2 = row[0], row[1], row[2], row[3], row[4]
+                elif name=="Name_Zone":
+                    Daikin1["Zone1"]["Name"],Daikin1["Zone2"]["Name"],Daikin1["Zone3"]["Name"],Daikin1["Zone4"]["Name"],Daikin1["Zone5"]["Name"],Daikin1["Zone6"]["Name"],Daikin1["Zone7"]["Name"],Daikin1["Zone8"]["Name"],Daikin1["Zone9"]["Name"],Daikin1["Zone10"]["Name"],Daikin1["Zone11"]["Name"],Daikin1["Zone12"]["Name"],Daikin1["Zone13"]["Name"],Daikin1["Zone14"]["Name"],Daikin1["Zone15"]["Name"],Daikin1["Zone16"]["Name"] = row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10], row[11], row[12], row[13], row[14], row[15]
+                    print (Daikin1["Zone1"]["Name"],Daikin1["Zone2"]["Name"],Daikin1["Zone3"]["Name"],Daikin1["Zone4"]["Name"],Daikin1["Zone5"]["Name"],Daikin1["Zone6"]["Name"],Daikin1["Zone7"]["Name"],Daikin1["Zone8"]["Name"],Daikin1["Zone9"]["Name"],Daikin1["Zone10"]["Name"],Daikin1["Zone11"]["Name"],Daikin1["Zone12"]["Name"],Daikin1["Zone13"]["Name"],Daikin1["Zone14"]["Name"],Daikin1["Zone15"]["Name"],Daikin1["Zone16"]["Name"])
+                elif name=="Serial_Raspberry":
+                    ma_serial = row[0]
+                    print "Ma serial ",ma_serial
+                elif name=="infor_network_wifi":
+
+                    wifi_ip_address, wifi_ip_gateway, ssid, wpa_password = row[0], row[1], row[3], row[4]
+                    print " WIFI " ,wifi_ip_address, wifi_ip_gateway, ssid, wpa_password
+                else:
+                    ip_address,ip_subnet,ip_gateway=row[0],row[2],row[1]
+                variable_loadata=variable_loadata+1
+            if variable_loadata==0:
+                print("Inser table {}: ".format(name))
+                cursor.execute(TABLES_INSERT[name])
+                db.commit()
+        db.commit()
+    db.close()
+def delete_db():
+    db = MySQLdb.connect("localhost", "root", "root", "Daikin")
+    cursor = db.cursor()
+    for name, ddl in TABLES_CREATE.iteritems():
+        try:
+            print("Delete table {}: ".format(name))
+            sql = "DROP TABLE {};".format(name)
+            cursor.execute(sql)
+            db.commit()
+        except:
+            logging.warning('Delete Database Error')
+            print("already exists.")
+            db.rollback()
+    db.close()
+def update_database(table):
+    db = MySQLdb.connect("localhost", "root", "root", "Daikin")
+    cursor = db.cursor()
+    try:
+        print(table)
+        cursor.execute("SET SQL_SAFE_UPDATES = 0")
+        cursor.execute(table)
+        cursor.execute("SET SQL_SAFE_UPDATES = 1")
+        db.commit()
+        print(table)
+    except:
+        logging.warning('Update Database Error')
+        print("already exists.")
+        db.rollback()
+    db.close()

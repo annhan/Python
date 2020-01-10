@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Wifi Setting</title>
+    <link rel="icon" type="image/png" href="/static/favicon.ico">
+    <link rel="stylesheet" href='/static/style.css' />
+</head>
+
+<body>
+    <h1>Wifi Setting</h1>
+    <form method="post" action="{{ url_for('set_wifi') }}">
+        <div class="row">
+            <label for="html_ssid">SSID:<span class="req">*</span></label>
+            <input type="text" name="html_ssid" class="txt" value={{ssid}}>
+            </div>
+
+            <div class="row">
+                <label for="html_wpa_password">Password:<span class="req">*</span></label>
+                <input type="text" name="html_wpa_password" class="txt" value={{ wpa_pass }}>
+                </div>
+
+                <div class="row">
+                    <label for="html_ip_wifi">ip:<span class="req">*</span></label>
+                    <input type="text" name="html_ip_wifi" class="txt" value={{ip_wifi}}>
+                    </div>
+                        <div class="row">
+                        <label for="html_gateway_wifi">gateway:<span class="req">*</span></label>
+                        <input type="text" name="html_gateway_wifi" class="txt" value={{ gateway_wifi }}>
+                        </div>
+
+                        <input type="submit" id="submitbtn" name="submitbtn" tabindex="5" value="Send">
+
+    </form>
+    <p>{{ infor_wifi_found }}</p>
+</body>
+
+</html>

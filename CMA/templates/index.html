@@ -1,0 +1,285 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <link rel="stylesheet" href='/static/style.css' />
+    <link rel="icon" type="image/png" href="/static/favicon.ico">
+</head>
+
+<body>
+
+    <h1>Giao diện điều khiển Đaikin</h1>
+    <script type="text/javascript">
+            function hide_zone(name,data) {
+                var stt=data
+                if (stt==0) {document.getElementById(name).style.display = "none"; return 0;}
+                else {document.getElementById(name).style.display = "block";return 1;}
+            }
+            function set_all() {
+                var stt=0
+                //<meta http-equiv="refresh" content="5" >
+                stt+=hide_zone("zone1",{{ _Using_zone1 }});
+                stt+=hide_zone("zone2",{{ _Using_zone2 }});
+                stt+=hide_zone("zone3",{{ _Using_zone3 }});
+                stt+=hide_zone("zone4",{{ _Using_zone4 }});
+                stt+=hide_zone("zone5",{{ _Using_zone5 }});
+                stt+=hide_zone("zone6",{{ _Using_zone6 }});
+                stt+=hide_zone("zone7",{{ _Using_zone7 }});
+                stt+=hide_zone("zone8",{{ _Using_zone8 }});
+                stt+=hide_zone("zone9",{{ _Using_zone9 }});
+                stt+=hide_zone("zone10",{{ _Using_zone10 }});
+                stt+=hide_zone("zone11",{{ _Using_zone11 }});
+                stt+=hide_zone("zone12",{{ _Using_zone12 }});
+                stt+=hide_zone("zone13",{{ _Using_zone13 }});
+                stt+=hide_zone("zone14",{{ _Using_zone14 }});
+                stt+=hide_zone("zone15",{{ _Using_zone15 }});
+                stt+=hide_zone("zone16",{{ _Using_zone16 }});
+                document.getElementById("status").innerHTML = "Status : Số vùng kết nối "+ stt +" ( Zone )";
+                return stt ;
+            }
+            function hienthi(name,data) {
+                var stt=data
+                if (stt==0) {document.getElementById(name).style.display = "none"; return 0;}
+                else {document.getElementById(name).style.display = "block";return 1;}
+            }
+    </script>
+
+    <fieldset>
+        <legend><a id="status" href='/'></a></legend>
+        <fieldset id="zone1" style="display:block">
+            <legend><a  href='/'>Zone 1  : {{ name_zone1 }} </a></legend>
+            <li>Status: <script type="text/javascript">
+                var bien={{ global3["Zone1"]["Status"] }}
+                if (bien==0) {document.write("OFF") }
+                else {document.write("ON")}
+            </script>
+            </li>
+            <li>Nhiệt độ : {{ global3["Zone1"]["Setpoint"] }}</li>
+        </fieldset>
+
+        <fieldset id="zone2" style="display:block">
+            <legend><a href='/'>Zone 2 : {{ name_zone2 }} </a></legend>
+            <li>Status: <script type="text/javascript">
+                var bien={{ global3["Zone2"]["Status"] }}
+                if (bien==0) {document.write("OFF") }
+                else {document.write("ON")}
+            </script>
+            </li>
+            <li>Nhiệt độ : {{ global3["Zone2"]["Setpoint"] }}</li>
+        </fieldset>
+
+        <fieldset id="zone3" style="display:block">
+            <legend><a href='/'>Zone 3 : {{ name_zone3 }} </a></legend>
+                        <li>Status: <script type="text/javascript">
+                var bien={{ global3["Zone3"]["Status"] }}
+                if (bien==0) {document.write("OFF") }
+                else {document.write("ON")}
+            </script>
+            </li>
+            <li>Nhiệt độ : {{ global3["Zone3"]["Setpoint"] }}</li>
+        </fieldset>
+
+        <fieldset id="zone4" style="display:block">
+            <legend><a href='/'>Zone 4 : {{ name_zone4 }} </a></legend>
+                        <li>Status: <script type="text/javascript">
+                var bien={{ global3["Zone4"]["Status"] }}
+                if (bien==0) {document.write("OFF") }
+                else {document.write("ON")}
+            </script>
+            </li>
+            <li>Nhiệt độ : {{ global3["Zone4"]["Setpoint"] }}</li>
+        </fieldset>
+
+        <fieldset id="zone5" style="display:block">
+            <legend><a href='/'>Zone 5 : {{ name_zone5 }} </a></legend>
+                        <li>Status: <script type="text/javascript">
+                var bien={{ global3["Zone5"]["Status"] }}
+                if (bien==0) {document.write("OFF") }
+                else {document.write("ON")}
+            </script>
+            </li>
+            <li>Nhiệt độ : {{ global3["Zone5"]["Setpoint"] }}</li>
+        </fieldset>
+
+        <fieldset id="zone6" style="display:block">
+            <legend><a href='/'>Zone 6 : {{ name_zone6 }} </a></legend>
+                        <li>Status: <script type="text/javascript">
+                var bien={{ global3["Zone6"]["Status"] }}
+                if (bien==0) {document.write("OFF") }
+                else {document.write("ON")}
+            </script>
+            </li>
+            <li>Nhiệt độ : {{ global3["Zone6"]["Setpoint"] }}</li>
+        </fieldset>
+
+        <fieldset id="zone7" style="display:block">
+            <legend><a href='/'>Zone 7 : {{ name_zone7 }} </a></legend>
+                        <li>Status: <script type="text/javascript">
+                var bien={{ global3["Zone7"]["Status"] }}
+                if (bien==0) {document.write("OFF") }
+                else {document.write("ON")}
+            </script>
+            </li>
+            <li>Nhiệt độ : {{ global3["Zone7"]["Setpoint"] }}</li>
+
+        </fieldset>
+
+        <fieldset id="zone8" style="display:block">
+            <legend><a href='/'>Zone 8 : {{ name_zone8 }} </a></legend>
+                        <li>Status: <script type="text/javascript">
+                var bien={{ global3["Zone8"]["Status"] }}
+                if (bien==0) {document.write("OFF") }
+                else {document.write("ON")}
+            </script>
+            </li>
+            <li>Nhiệt độ : {{ global3["Zone8"]["Setpoint"] }}</li>
+        </fieldset>
+
+        <fieldset id="zone9" style="display:block">
+            <legend><a href='/'>Zone 9 : {{ name_zone9 }} </a></legend>
+                        <li>Status: <script type="text/javascript">
+                var bien={{ global3["Zone9"]["Status"] }}
+                if (bien==0) {document.write("OFF") }
+                else {document.write("ON")}
+            </script>
+            </li>
+            <li>Nhiệt độ : {{ global3["Zone9"]["Setpoint"] }}</li>
+        </fieldset>
+
+        <fieldset id="zone10" style="display:block">
+            <legend><a href='/'>Zone 10 : {{ name_zone10 }} </a></legend>
+                        <li>Status: <script type="text/javascript">
+                var bien={{ global3["Zone10"]["Status"] }}
+                if (bien==0) {document.write("OFF") }
+                else {document.write("ON")}
+            </script>
+            </li>
+            <li>Nhiệt độ : {{ global3["Zone10"]["Setpoint"] }}</li>
+        </fieldset>
+
+        <fieldset id="zone11" style="display:block">
+            <legend><a href='/'>Zone 11 : {{ name_zone11 }} </a></legend>
+                        <li>Status: <script type="text/javascript">
+                var bien={{ global3["Zone11"]["Status"] }}
+                if (bien==0) {document.write("OFF") }
+                else {document.write("ON")}
+            </script>
+            </li>
+            <li>Nhiệt độ : {{ global3["Zone11"]["Setpoint"] }}</li>
+        </fieldset>
+
+        <fieldset id="zone12" style="display:block">
+            <legend><a href='/'>Zone 12 : {{ name_zone12 }} </a></legend>
+                        <li>Status: <script type="text/javascript">
+                var bien={{ global3["Zone12"]["Status"] }}
+                if (bien==0) {document.write("OFF") }
+                else {document.write("ON")}
+            </script>
+            </li>
+            <li>Nhiệt độ : {{ global3["Zone12"]["Setpoint"] }}</li>
+        </fieldset>
+
+        <fieldset id="zone13" style="display:block">
+            <legend><a href='/'>Zone 13 : {{ name_zone13 }} </a></legend>
+                        <li>Status: <script type="text/javascript">
+                var bien={{ global3["Zone13"]["Status"] }}
+                if (bien==0) {document.write("OFF") }
+                else {document.write("ON")}
+            </script>
+            </li>
+            <li>Nhiệt độ : {{ global3["Zone13"]["Setpoint"] }}</li>
+        </fieldset>
+
+        <fieldset id="zone14" style="display:block">
+            <legend><a href='/'>Zone 14 : {{ name_zone14 }} </a></legend>
+                        <li>Status: <script type="text/javascript">
+                var bien={{ global3["Zone14"]["Status"] }}
+                if (bien==0) {document.write("OFF") }
+                else {document.write("ON")}
+            </script>
+            </li>
+            <li>Nhiệt độ : {{ global3["Zone14"]["Setpoint"] }}</li>
+        </fieldset>
+
+        <fieldset id="zone15" style="display:block">
+            <legend><a href='/'>Zone 15 : {{ name_zone15 }} </a></legend>
+                        <li>Status: <script type="text/javascript">
+                var bien={{ global3["Zone15"]["Status"] }}
+                if (bien==0) {document.write("OFF") }
+                else {document.write("ON")}
+            </script>
+            </li>
+            <li>Nhiệt độ : {{ global3["Zone15"]["Setpoint"] }}</li>
+        </fieldset>
+
+        <fieldset id="zone16" style="display:block">
+            <legend><a href='/'>Zone 16 : {{ name_zone16 }} </a></legend>
+                        <li>Status: <script type="text/javascript">
+                var bien={{ global3["Zone16"]["Status"] }}
+                if (bien==0) {document.write("OFF") }
+                else {document.write("ON")}
+            </script>
+            </li>
+            <li>Nhiệt độ : {{ global3["Zone16"]["Setpoint"] }}</li>
+        </fieldset>
+        <script> set_all()</script>
+
+    </fieldset>
+    <fieldset>
+        <legend><a href='/'>Setting </a>
+        </legend>
+        <fieldset>
+            <legend><a href='/setZoneName'>Zone Name</a></legend>
+            <li> Cài đặt tên cho các khu vực</li>
+        </fieldset>
+        <fieldset>
+            <legend><a href='/setip'>IP LAN Setting</a></legend>
+            <li> Cài đặt ip cho thiết bị</li>
+        </fieldset>
+        <fieldset>
+            <legend><a href='/setwifi'>IP Wifi Setting</a></legend>
+            <li> Cài đặt Wifi cho thiết bị</li>
+        </fieldset>
+        <fieldset>
+            <legend><a href='/setHC2'>HC2 Setting</a></legend>
+            <li> Cài đặt HC2 cho thiết bị</li>
+        </fieldset>
+        <fieldset>
+            <legend><a href='/setmaso'>Code Setting</a></legend>
+            <li> Cài đặt mã số</li>
+        </fieldset>
+    </fieldset>
+    <fieldset>
+        <legend>Infor</legend>
+
+        <li>@ Copyright by Kim Son Tien Co.Ltd - mHome
+            <li>www.nhathongminhmhome.com
+                <li>Designed by mHome - R&D Department
+                    <li>Made in VietNam
+
+    </fieldset>
+    Search: <input type="text" id="search_form_input"></input>
+    <div id="place_for_suggestions"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script>
+$("#search_form_input").keyup(function(){
+    var text = $(this).val();
+
+    $.ajax({
+      url: "/suggestions",
+      type: "get",
+      data: {jsdata: text},
+      success: function(response) {
+        $("#place_for_suggestions").html(response);
+      },
+      error: function(xhr) {
+        //Do Something to handle error
+      }
+    });
+});
+</script>
+</body>
+
+</html>
