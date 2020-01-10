@@ -1,42 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
-    <title>Thông Tin</title>
-    <link rel="icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="2.css">
+
+    <title>Main</title>
+    <link rel="stylesheet" href='/static/style.css' />
+    <link rel="icon" type="image/png" href="/static/favicon.ico">
 </head>
-<body> 
-     <h1>Setting</h1>
-	 <fieldset> <legend style ="color: red; font-size : 30px ;align: Center">Cài Đặt</legend> 
-		<fieldset> 
-            <legend><a href='/wifi_conf'>Cài đặt Wifi</a></legend> 
-            <li>Wifi : Wifi parameter ( SSID ,PASS, DHCP ..)
-		</fieldset> 
-		<fieldset> 
-            <legend><a href='/mqtt_conf'>Cài Đặt MQTT</a></legend> 
-            <li>Server MQTT 
-		</fieldset> 
-     </fieldset> 
-	 
-     <fieldset> <legend style ="color: red; font-size : 30px ; align: Center">Other Function</legend> 
-		<fieldset> 
-			<legend><a href='/firmware'>Update Chương Trình</a></legend> 
-			<li>Update firmware
-			<li>Status : %VERSION% 
-		</fieldset> 
-		<fieldset> 
-			<legend><a href='/Reboot'>Reboot</a></legend> 
-		</fieldset> 
-		<fieldset> 
-			<legend><a href='/Reset1'>Reset</a></legend>  
-		</fieldset> 
-    </fieldset> 
-    <fieldset> 
-		<legend style ="color: red; font-size : 30px ;align: Center">Thông tin</legend> 
-		<li>HMI Weintek rs485 
-		<li>Wifi
-    </fieldset> 
+
+<body>
+
+    <h1>Giao diện điều khiển Đaikin</h1>
+
+    <fieldset>
+        <legend><a href='/'>Setting </a>
+        </legend>
+        <fieldset>
+            <legend><a href='/setZoneName'>Zone Name</a></legend>
+            <li> Cài đặt tên cho các khu vực</li>
+        </fieldset>
+        <fieldset>
+            <legend><a href='/setip'>IP LAN Setting</a></legend>
+            <li> Cài đặt ip cho thiết bị</li>
+        </fieldset>
+        <fieldset>
+            <legend><a href='/setwifi'>IP Wifi Setting</a></legend>
+            <li> Cài đặt Wifi cho thiết bị</li>
+        </fieldset>
+        <fieldset>
+            <legend><a href='/setHC2'>HC2 Setting</a></legend>
+            <li> Cài đặt HC2 cho thiết bị</li>
+        </fieldset>
+        <fieldset>
+            <legend><a href='/setmaso'>Code Setting</a></legend>
+            <li> Cài đặt mã số</li>
+        </fieldset>
+    </fieldset>
+    <fieldset>
+        <legend>Infor</legend>
+
+        <li>@ Copyright by Kim Son Tien Co.Ltd - mHome
+            <li>www.nhathongminhmhome.com
+                <li>Designed by mHome - R&D Department
+                    <li>Made in VietNam
+
+    </fieldset>
+    Search: <input type="text" id="search_form_input"></input>
+    <div id="place_for_suggestions"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script>
+$("#search_form_input").keyup(function(){
+    var text = $(this).val();
+
+    $.ajax({
+      url: "/suggestions",
+      type: "get",
+      data: {jsdata: text},
+      success: function(response) {
+        $("#place_for_suggestions").html(response);
+      },
+      error: function(xhr) {
+        //Do Something to handle error
+      }
+    });
+});
+</script>
 </body>
+
 </html>

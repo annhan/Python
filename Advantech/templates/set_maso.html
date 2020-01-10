@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Code Setting</title>
+        <link rel="icon" type="image/png" href="/static/favicon.ico">
+        <link rel="stylesheet" type="text/css" media="all"  href='/static/style.css' />
+    </head>
+    <body>
+    <h1>Code Setting</h1>
+    <form method="post" action="{{ url_for('set_maso') }}">
+        <div class="row">
+        <label for="html_uuid">UUID:</label>
+        <input type="text" name="html_uuid"  class="txt"  value={{uuid}} readonly>
+        </div>
+        <div class="row">
+        <label for="html_code">Code:<span class="req">*</span></label>
+        <input  type="text" name="html_code" class="txt"  value={{ macode }} required>
+        </div>
+        <input type="submit" id="submitbtn" name="submitbtn" tabindex="5" value="Send">
+    </form>
+    </body>
+</html>

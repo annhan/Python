@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>IP Setting</title>
+        <link rel="icon" type="image/png" href="/static/favicon.ico">
+        <link rel="stylesheet" type="text/css" media="all"  href='/static/style.css' />
+    </head>
+    <body>
+    <h1>Cài IP Mạng LAN</h1>
+    <form method="post" action="{{ url_for('set_ip') }}">
+        <div class="row">
+        <label for="html_ip">Ip:<span class="req">*</span></label>
+        <input type="text" name="html_ip"  class="txt"  value={{ip}} required>
+        </div>
+        <div class="row">
+        <label for="html_gateway">Gateway:<span class="req">*</span></label>
+        <input type="text" name="html_gateway" class="txt"  value={{ gateway }} required>
+        </div>
+        <div class="row">
+        <label for="html_subnet">subnet:<span class="req">*</span></label>
+        <input type="text" name="html_subnet" class="txt" value={{ subnet }} required>
+        </div>
+        <input type="submit" id="submitbtn" name="submitbtn" tabindex="5" value="Send">
+    </form>
+    </body>
+</html>

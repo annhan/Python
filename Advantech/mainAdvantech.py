@@ -1,22 +1,20 @@
+# -*- coding: utf8 -*-
 from flask import Flask, render_template
 from flask import request
-import MySQLdb
-
-def update_database(table):
-    db = MySQLdb.connect("localhost", "root", "root", "Daikin")
-    cursor = db.cursor()
-    try:
-        print(table)
-        cursor.execute("SET SQL_SAFE_UPDATES = 0")
-        cursor.execute(table)
-        cursor.execute("SET SQL_SAFE_UPDATES = 1")
-        db.commit()
-        print(table)
-    except:
-        logging.warning('Update Database Error')
-        print("already exists.")
-        db.rollback()
-    db.close()
+############
+## Bien cho Wifi
+##################
+ssid=""
+wpa_password=""
+wifi_ip_address="192.168.99.130"
+wifi_ip_gateway="192.168.99.1"
+infor_wifi_found=""
+############
+## Bien cho Wire NEtword
+##################
+ip_address="192.168.99.130"
+ip_subnet="255.255.255.0"
+ip_gateway="192.168.99.1"
 ##################3
 ## Ham SET STATIC IP CHO PI
 ############################
@@ -68,21 +66,7 @@ def write_wifi():
 app = Flask(__name__)
 @app.route('/')
 def trang_chu():
-    return render_template('index.html',global3=Daikin1,name_zone1=Daikin1["Zone1"]["Name"], name_zone2=Daikin1["Zone2"]["Name"], name_zone3=Daikin1["Zone3"]["Name"], name_zone4=Daikin1["Zone4"]["Name"],name_zone5=Daikin1["Zone5"]["Name"],name_zone6=Daikin1["Zone6"]["Name"],name_zone7=Daikin1["Zone7"]["Name"],name_zone8=Daikin1["Zone8"]["Name"],name_zone9=Daikin1["Zone9"]["Name"],name_zone10=Daikin1["Zone10"]["Name"],name_zone11=Daikin1["Zone11"]["Name"],name_zone12=Daikin1["Zone12"]["Name"],name_zone13=Daikin1["Zone13"]["Name"],name_zone14=Daikin1["Zone14"]["Name"],name_zone15=Daikin1["Zone15"]["Name"],name_zone16=Daikin1["Zone16"]["Name"],_Using_zone1=Daikin1["Zone1"]["Using"], _Using_zone2=Daikin1["Zone2"]["Using"], _Using_zone3=Daikin1["Zone3"]["Using"], _Using_zone4=Daikin1["Zone4"]["Using"],_Using_zone5=Daikin1["Zone5"]["Using"],_Using_zone6=Daikin1["Zone6"]["Using"],_Using_zone7=Daikin1["Zone7"]["Using"],_Using_zone8=Daikin1["Zone8"]["Using"],_Using_zone9=Daikin1["Zone9"]["Using"],_Using_zone10=Daikin1["Zone10"]["Using"],_Using_zone11=Daikin1["Zone11"]["Using"],_Using_zone12=Daikin1["Zone12"]["Using"],_Using_zone13=Daikin1["Zone13"]["Using"],_Using_zone14=Daikin1["Zone14"]["Using"],_Using_zone15=Daikin1["Zone15"]["Using"],_Using_zone16=Daikin1["Zone16"]["Using"])
-
-@app.route('/setmodbus', methods=['POST', 'GET'])
-def set_modbus():
-    global modbus_boudrate,modbus_timeout,modbus_address
-    if request.method == 'POST':
-        print(modbus_timeout)
-        modbus_boudrate=request.form['html_Boudrate']
-        modbus_address=request.form['html_slave_address']
-        modbus_timeout=request.form['html_timeout']
-        print(modbus_timeout)
-        update_database("UPDATE Daikin SET mode='{}',boudrate={},slave_address={},timeout={}".format('rtu',modbus_boudrate,modbus_address,modbus_timeout))
-        return "OK dsds"
-    else:
-        return render_template('set_modbus.html')
+    return render_template('index.html')
 
 @app.route('/setwifi', methods=['POST', 'GET'])
 def set_wifi():
@@ -104,7 +88,6 @@ def set_wifi():
             #os.system('sudo ifconfig eth0 up')
             return "OK"
     else:
-        infor_wifi_found = ssid_discovered()
         return render_template('set_wifi.html', ssid=ssid,wpa_pass=wpa_password,ip_wifi=wifi_ip_address,gateway_wifi=wifi_ip_gateway,infor_wifi_found=infor_wifi_found)
 
 if __name__ == '__main__':

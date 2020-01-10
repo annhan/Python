@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HC2 Setting</title>
+    <link rel="icon" type="image/png" href="/static/favicon.ico">
+    <link rel="stylesheet" href='/static/style.css' />
+</head>
+
+<body>
+    <h1>HC2 Setting</h1>
+    <form method="post" action="{{ url_for('set_HC2') }}">
+
+        <div class="row">
+            <label for="html_ipHC2"> IP HC2:<span class="req">*</span></label>
+            <input type="text" name="html_ipHC2" class="txt" value={{ ip }}>
+            </div>
+
+                <div class="row">
+                    <label for="html_user">User:<span class="req">*</span></label>
+                <input type="text" name="html_user" class="txt" value={{ userHC }}>
+                </div>
+
+                <div class="row">
+                    <label for="html_password">Password:<span class="req">*</span></label>
+                    <input type="text" name="html_password" class="txt" value={{ PassHC2 }}>
+                    </div>
+
+                <div class="row">
+                    <label for="html_global1">Global 1:<span class="req">*</span></label>
+                        <input type="text" name="html_global1" class="txt" value={{ glo1 }}>
+                        </div>
+
+                <div class="row">
+                    <label for="html_global2">Global 2:<span class="req">*</span></label>
+                    <input type="text" name="html_global2" class="txt"  value={{ glo2 }}>
+                    </div>
+
+                    <input type="submit" id="submitbtn" name="submitbtn" tabindex="5" value="Send">
+    </form>
+    <p>Click để Save.</p>
+</body>
+
+</html>

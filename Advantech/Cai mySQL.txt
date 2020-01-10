@@ -1,1 +1,32 @@
+------------------------------
+Install mySQL ------------------------
+---------------------------------
+sudo apt-get install python-pip python-dev libmysqlclient-dev
+sudo apt-get install python-mysqldb
+sudo apt-get install mysql-server python-mysqldb
 sudo apt install mariadb-server
+pip install mysql-connector 
+mysql -u root -p
+-----------------------------------------------------------------------------
+My SQL Database Python ----------------------------------------
+----------------------------------------------------------------------------
+sudo /etc/init.d/mysql stop
+sudo /etc/init.d/mysql start
+
+1.Login
+
+sudo mysql -u root -p
+
+password: root
+
+2. Create Database:
+create database WifiSetting;
+3. Show database:
+show databases;
+
+Trang huong dan database:
+http://thuthuatvietnam.com/tao-database-va-user-mysql-bang-lenh-terminal.html
+
+Tao 2 databa:
+
+WifiSetting

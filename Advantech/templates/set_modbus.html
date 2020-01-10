@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>modbus</title>
+        <link rel="icon" type="image/png" href="/static/favicon.ico">
+        <link rel="stylesheet" href='/static/style.css' />
+    </head>
+    <body>
+    <form method="post" action="{{ url_for('set_modbus') }}">
+        <label for="html_Boudrate">BoudRate:</label>
+        <input type="text" name="html_Boudrate" /><br />
+
+        <label for="html_slave_address">slave_address:</label>
+        <input type="text" name="html_slave_address" /><br />
+
+        <label for="html_timeout">Timeout=:</label>
+        <input type="text" name="html_timeout" /><br />
+
+        <input type="submit" />
+    </form>
+    <p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+    </body>
+</html>
