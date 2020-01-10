@@ -1,6 +1,8 @@
 import MySQLdb as mariadb
 from mainAdvantech import ip_gateway, ip_address, ip_subnet, wifi_ip_gateway, wifi_ip_address, ssid, wpa_password
 
+global ip_gateway, ip_address, ip_subnet, wifi_ip_gateway, wifi_ip_address
+global ssid, wpa_password
 
 TABLES_CREATE = {}
 TABLES_CREATE['infor_network'] = (
@@ -49,8 +51,9 @@ def load_database():
                 elif name=="infor_network_wifi":
                     wifi_ip_address, wifi_ip_gateway, ssid, wpa_password = row[0], row[1], row[3], row[4]
                     print " WIFI " ,wifi_ip_address, wifi_ip_gateway, ssid, wpa_password
-                else:
+                elif name=="infor_network":
                     ip_address,ip_subnet,ip_gateway=row[0],row[2],row[1]
+                    print " IP ", ip_address, ip_subnet, ip_gateway
                 variable_loadata=variable_loadata+1
             if variable_loadata==0:
                 print("Inser table {}: ".format(name))
