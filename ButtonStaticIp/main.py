@@ -3,9 +3,9 @@ from time import sleep  # this lets us have a time delay (see line 15)
 import os
 def changeIP():
     print "Change IP"
-    #os.system('sudo ifconfig eth0 down')
-    #os.system('sudo ifconfig eth0 192.168.1.10')
-    #os.system('sudo ifconfig eth0 up')
+    os.system('sudo ifconfig eth0 down')
+    os.system('sudo ifconfig eth0 192.168.1.10')
+    os.system('sudo ifconfig eth0 up')
 def buttonCall(*args):
     if GPIO.input(21) == GPIO.LOW:
         print "Button nhan"

@@ -1,4 +1,6 @@
 import MySQLdb as mariadb
+from mainAdvantech import ip_gateway, ip_address, ip_subnet, wifi_ip_gateway, wifi_ip_address, ssid, wpa_password
+
 
 TABLES_CREATE = {}
 TABLES_CREATE['infor_network'] = (

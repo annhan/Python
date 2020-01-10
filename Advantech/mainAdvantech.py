@@ -1,6 +1,10 @@
 # -*- coding: utf8 -*-
+from os.path import dirname, join
 from flask import Flask, render_template
 from flask import request
+from MySQL import *
+
+
 ############
 ## Bien cho Wifi
 ##################
@@ -67,7 +71,46 @@ app = Flask(__name__)
 @app.route('/')
 def trang_chu():
     return render_template('index.html')
-
+@app.route('/setip', methods=['POST', 'GET'])
+def set_ip():
+    global ip_address,ip_gateway,ip_subnet,wifi_ip_gateway,wifi_ip_address
+    if request.method == 'POST':
+        if request.headers['Content-Type'] == 'application/json':
+            return ("JSON Message:  Not Accept") #" + json.dumps(request.json + "
+        ip_address_new,ip_subnet_new,ip_gateway_new=request.form['html_ip'],request.form['html_subnet'],request.form['html_gateway']
+        if len(ip_address_new) < 7:
+            print("Khong gia tri IP")
+            return "Dia chi IP ngan"
+        elif len(ip_gateway_new) < 7:
+            print ("Khong gia tri Gateway")
+            return "Dia chi gateway ngan"
+        elif ip_address_new==wifi_ip_address:
+            print("Trung Ip voi mnag Wifi")
+            return "Error IP trung voi mang VLAN"
+        else:
+            ip_address,ip_subnet,ip_gateway=ip_address_new,ip_subnet_new,ip_gateway_new
+            update_database("UPDATE infor_network SET ip='{}',gateway= '{}',subnet= '{}'".format(ip_address,ip_gateway,ip_subnet))
+            write_netword()
+        #os.system('sudo ifconfig eth0 down')
+        #os.system('sudo ifconfig eth0 {}'.format(ip_address))
+        #os.system('sudo ifconfig eth0 up')
+            return "OK"
+    else:
+        return render_template('set_ip.html', ip=ip_address,gateway=ip_gateway,subnet=ip_subnet)
+@app.route('/setmaso', methods=['POST', 'GET'])
+def set_maso():
+    global so_serial,ma_serial
+    if request.method == 'POST':
+        ma_tam = request.form['html_code']
+        if len(ma_tam) < 20:
+            print("Sai ma")
+            return "NOT OK"
+        else:
+            ma_serial = ma_tam
+            update_database("UPDATE Serial_Raspberry SET So_Serial='{}'".format(ma_serial))
+            return "OK"
+    else:
+        return render_template('set_maso.html', uuid=so_serial,macode=ma_serial)
 @app.route('/setwifi', methods=['POST', 'GET'])
 def set_wifi():
     global ip_address,ip_gateway,ip_subnet,wpa_password,ssid,wifi_ip_address,wifi_ip_gateway,infor_wifi_found

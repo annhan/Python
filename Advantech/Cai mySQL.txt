@@ -30,3 +30,12 @@ http://thuthuatvietnam.com/tao-database-va-user-mysql-bang-lenh-terminal.html
 Tao 2 databa:
 
 WifiSetting
+//////////////////
+Cai Wifi
+Vao /etc/wpa_supplicant/wpa_supplicant.conf
+
+network={
+ssid="scc"
+scan_ssid=1
+psk="ss"
+}
