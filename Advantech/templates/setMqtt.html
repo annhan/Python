@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Wifi Setting</title>
+    <link rel="icon" type="image/png" href="/static/favicon.ico">
+    <link rel="stylesheet" href='/static/style.css' />
+</head>
+
+<body>
+    <h1>Wifi Setting</h1>
+    <form method="post" action="{{ url_for('setMqtt') }}">
+        <div class="row">
+            <label for="httpMqttServer">Server:<span class="req">*</span></label>
+            <input type="text" name="httpMqttServer" class="txt" value={{mqttServer}}>
+        </div>
+        <div class="row">
+            <label for="httpMqttPort">Port:<span class="req">*</span></label>
+            <input type="text" name="httpMqttPort" class="txt" value={{mqttPort}}>
+        </div>
+        <div class="row">
+                    <label for="httpMqttUser">User:<span class="req">*</span></label>
+                    <input type="text" name="httpMqttUser" class="txt" value={{mqttUser}}>
+        </div>
+        <div class="row">
+                <label for="httpMqttPass">Password:<span class="req">*</span></label>
+                <input type="password" name="httpMqttPass" class="txt" value={{ mqttPass }}>
+        </div>
+        <div class="row">
+            <label for="httpMqttTopicSub1">Sub 1:<span class="req">*</span></label>
+            <input type="text" name="httpMqttTopicSub1" class="txt" value={{mqttTopicSub1}}>
+        </div>
+        <div class="row">
+            <label for="httpMqttTopicSub2">Sub 2:<span class="req">*</span></label>
+            <input type="text" name="httpMqttTopicSub2" class="txt" value={{mqttTopicSub2}}>
+        </div>
+        <div class="row">
+            <label for="httpMqttTopicPub1">Pub 1:<span class="req">*</span></label>
+            <input type="text" name="httpMqttTopicPub1" class="txt" value={{mqttTopicPub1}}>
+        </div>
+        <div class="row">
+            <label for="httpMqttTopicPub2">Topic Pub 2:<span class="req">*</span></label>
+            <input type="text" name="httpMqttTopicPub2" class="txt" value={{mqttTopicPub2}}>
+        </div>
+            <input type="submit" id="submitbtn" name="submitbtn" tabindex="5" value="Send">
+
+    </form>
+    <p>{{ infor_wifi_found }}</p>
+</body>
+
+</html>

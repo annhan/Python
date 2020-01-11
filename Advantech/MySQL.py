@@ -9,6 +9,16 @@ TABLES_CREATE['infor_network'] = (
          subnet  CHAR(16),
          wifi_name CHAR(30),  
          wifi_password CHAR(60))""")
+TABLES_CREATE['mqttConf'] = (
+        """CREATE TABLE mqttConf(
+         serverMQTT  CHAR(32) NOT NULL,
+         portMQTT  INT,
+         userMQTT  CHAR(16),
+         passwordMQTT CHAR(30),  
+         TopicSub1 CHAR(60),
+         TopicSub2 CHAR(60),
+         TopicPub1 CHAR(60),
+         TopicPub2 CHAR(60))""")
 TABLES_CREATE['infor_network_wifi'] = (
         """CREATE TABLE infor_network_wifi(
          ip  CHAR(20) NOT NULL,
@@ -21,7 +31,30 @@ TABLES_INSERT['infor_network'] = (
         "INSERT INTO infor_network(ip,gateway,subnet,wifi_name,wifi_password) VALUES ('%s','%s','%s','%s','%s')"%(Variable.ip_address, Variable.ip_gateway, Variable.ip_subnet, 'mHomeBH','123789456'))
 TABLES_INSERT['infor_network_wifi'] = (
         "INSERT INTO infor_network_wifi(ip,gateway,subnet,wifi_name,wifi_password) VALUES ('%s','%s','%s','%s','%s')"%(Variable.wifi_ip_address, Variable.wifi_ip_gateway, Variable.ip_subnet, 'mHomeBH','123789456'))
+TABLES_INSERT['mqttConf'] = (
+        "INSERT INTO mqttConf(serverMQTT,portMQTT,userMQTT,passwordMQTT,TopicSub1,TopicSub2,TopicPub1,TopicPub2) VALUES ('%s','%d','%s','%s','%s','%s','%s','%s')"%(Variable.mqttServer, Variable.mqttPort, Variable.mqttUser, Variable.mqttPass ,'x','x','x','x'))
+def TABLESINSERT():
+    name = 'mqttConf'
+    db = mariadb.connect("localhost", "root", "root", "advantechConf")
+    cursor = db.cursor()
+    cursor.execute(ddl)
+    db.commit()
+    cursor.execute(TABLES_INSERT[name])
+    db.commit()
+    db.close()
+def deletetable():
+    name = 'mqttConf'
+    db = mariadb.connect("localhost", "root", "root", "advantechConf")
+    cursor = db.cursor()
+    print("Delete table {}: ".format(name))
+    sql = "DROP TABLE {};".format(name)
+    cursor.execute(sql)
+    db.commit()
+    db.close()
 
+
+
+#show table;
 def load_database():
     #global wifi_ip_gateway,wifi_ip_address,ssid,wpa_password
     #global ip_gateway,ip_address,ip_subnet
@@ -30,11 +63,15 @@ def load_database():
     for name, ddl in TABLES_CREATE.iteritems():
         print(name)
         try:
+            #print("Creating table {}: ".format(name))
+            # print(ddl)
             cursor.execute(ddl)
             db.commit()
+            #print(ddl)
+            #print("target 1 {}: ".format(name))
             cursor.execute(TABLES_INSERT[name])
             db.commit()
-            print("Creating table {}: ".format(name))
+            print("Creating donw table {}: ".format(name))
         except :
             db.rollback()
             sql = "SELECT * FROM {}".format(name)
@@ -48,9 +85,10 @@ def load_database():
                 elif name=="infor_network_wifi":
                     Variable.wifi_ip_address, Variable.wifi_ip_gateway, Variable.ssid, Variable.wpa_password = row[0], row[1], row[3], row[4]
                     print " WIFI " ,Variable.wifi_ip_address, Variable.wifi_ip_gateway, Variable.ssid, Variable.wpa_password
-                elif name=="infor_network":
-                    Variable.ip_address,Variable.ip_subnet,Variable.ip_gateway=row[0],row[2],row[1]
-                    print " IP ", Variable.ip_address, Variable.ip_subnet, Variable.ip_gateway
+                elif name=="mqttConf":
+                    print "dung"
+                    Variable.mqttServer,Variable.mqttPort,Variable.mqttUser,Variable.mqttPass,Variable.mqttTopicSub1,Variable.mqttTopicSub2,Variable.mqttTopicPub1,Variable.mqttTopicPub2=row[0],int(row[1]),row[2],row[3],row[4],row[5],row[6],row[7]
+                    print " MQTT ", Variable.mqttServer,Variable.mqttPort,Variable.mqttUser,Variable.mqttPass,Variable.mqttTopicSub1,Variable.mqttTopicSub2,Variable.mqttTopicPub1,Variable.mqttTopicPub2
                 variable_loadata=variable_loadata+1
             if variable_loadata==0:
                 print("Inser table {}: ".format(name))
@@ -74,14 +112,14 @@ def delete_db():
 def update_database(table):
     db = mariadb.connect("localhost", "root", "root", "advantechConf")
     cursor = db.cursor()
-    try:
-        print(table)
-        cursor.execute("SET SQL_SAFE_UPDATES = 0")
-        cursor.execute(table)
-        cursor.execute("SET SQL_SAFE_UPDATES = 1")
-        db.commit()
-        print(table)
-    except:
-        print("already exists.")
-        db.rollback()
+    #try:
+    print(table)
+    cursor.execute("SET SQL_SAFE_UPDATES = 0")
+    cursor.execute(table)
+    cursor.execute("SET SQL_SAFE_UPDATES = 1")
+    db.commit()
+    print(table)
+    #except:
+    #    print("already exists.")
+    #    db.rollback()
     db.close()

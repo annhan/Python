@@ -2,9 +2,11 @@
 
 from MySQL import *
 from webflask import runningFlask , app
-#import Variable
+
 
 if __name__ == '__main__':
+    #TABLESINSERT()
+    #deletetable()
     load_database()
     app.jinja_env.auto_reload = True
     app.config['TEMPLATES_AUTO_RELOAD'] = True

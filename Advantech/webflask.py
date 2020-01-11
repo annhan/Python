@@ -3,7 +3,7 @@
 from os.path import dirname, join
 from flask import Flask, render_template
 from flask import request
-from MySQL import *
+from MySQL import load_database,delete_db,update_database, Variable
 
 ##################3
 ## Ham SET STATIC IP CHO PI
@@ -61,19 +61,19 @@ def set_ip():
     if request.method == 'POST':
         if request.headers['Content-Type'] == 'application/json':
             return ("JSON Message:  Not Accept") #" + json.dumps(request.json + "
-        Variable.ip_address_new,Variable.ip_subnet_new,Variable.ip_gateway_new=request.form['html_ip'],request.form['html_subnet'],request.form['html_gateway']
+        ip_address_new,ip_subnet_new,ip_gateway_new=request.form['html_ip'],request.form['html_subnet'],request.form['html_gateway']
         if len(ip_address_new) < 7:
             print("Khong gia tri IP")
             return "Dia chi IP ngan"
         elif len(ip_gateway_new) < 7:
             print ("Khong gia tri Gateway")
             return "Dia chi gateway ngan"
-        elif ip_address_new==wifi_ip_address:
+        elif ip_address_new==Variable.wifi_ip_address:
             print("Trung Ip voi mnag Wifi")
             return "Error IP trung voi mang VLAN"
         else:
             Variable.ip_address,Variable.ip_subnet,Variable.ip_gateway=ip_address_new,ip_subnet_new,ip_gateway_new
-            MySQL.update_database("UPDATE infor_network SET ip='{}',gateway= '{}',subnet= '{}'".format(Variable.ip_address,Variable.ip_gateway,Variable.ip_subnet))
+            update_database("UPDATE infor_network SET ip='{}',gateway= '{}',subnet= '{}'".format(Variable.ip_address,Variable.ip_gateway,Variable.ip_subnet))
             write_netword()
         #os.system('sudo ifconfig eth0 down')
         #os.system('sudo ifconfig eth0 {}'.format(ip_address))
@@ -116,6 +116,25 @@ def set_wifi():
             return "OK"
     else:
         return render_template('set_wifi.html', ssid=Variable.ssid,wpa_pass=Variable.wpa_password,ip_wifi=Variable.wifi_ip_address,gateway_wifi=Variable.wifi_ip_gateway,infor_wifi_found=Variable.infor_wifi_found)
+@app.route('/setMqtt', methods=['POST', 'GET'])
+def setMqtt():
+    if request.method == 'POST':
+        if request.headers['Content-Type'] == 'application/json':
+            return ("JSON Message:  Not Accept") #" + json.dumps(request.json + "
+        Variable.mqttServer = request.form['httpMqttServer']
+        Variable.mqttPort = request.form['httpMqttPort']
+        Variable.mqttUser = request.form['httpMqttUser']
+        Variable.mqttPass = request.form['httpMqttPass']
+        Variable.mqttTopicSub1 = request.form['httpMqttTopicSub1']
+        Variable.mqttTopicSub2 = request.form['httpMqttTopicSub2']
+        Variable.mqttTopicSub1 = request.form['httpMqttTopicPub1']
+        Variable.mqttTopicPub2 = request.form['httpMqttTopicPub2']
+        update_database("UPDATE mqttConf SET serverMQTT='{}',portMQTT={},userMQTT='{}',passwordMQTT = '{}',TopicSub1= '{}',TopicSub2= '{}',TopicPub1= '{}',TopicPub2= '{}'".format(Variable.mqttServer, Variable.mqttPort, Variable.mqttUser, Variable.mqttPass ,Variable.mqttTopicSub1,Variable.mqttTopicSub2,Variable.mqttTopicPub1,Variable.mqttTopicPub2))
+        print Variable.mqttServer, Variable.mqttPort, Variable.mqttUser, Variable.mqttPass ,Variable.mqttTopicSub1,Variable.mqttTopicSub2,Variable.mqttTopicPub1,Variable.mqttTopicPub2
+        return "OK"
+    else:
+        return render_template('setMqtt.html',mqttServer=Variable.mqttServer, mqttPort = Variable.mqttPort, mqttUser = Variable.mqttUser, mqttPass = Variable.mqttPass ,mqttTopicSub1=Variable.mqttTopicSub1,mqttTopicSub2=Variable.mqttTopicSub2,mqttTopicPub1=Variable.mqttTopicPub1,mqttTopicPub2=Variable.mqttTopicPub2)
+
 def runningFlask():
     print "chay wweb"
     #app.jinja_env.auto_reload = True
