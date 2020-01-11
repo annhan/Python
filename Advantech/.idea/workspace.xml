@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b98b234-9863-4581-9422-f5f0bf20fcdf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cai mySQL.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Cai mySQL.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MySQL.py" beforeDir="false" afterPath="$PROJECT_DIR$/MySQL.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mainAdvantech.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainAdvantech.py" afterDir="false" />
     </list>
@@ -36,6 +33,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="js.buildTools.gulp.gulp_package_dir" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -52,7 +50,7 @@
       </console-settings>
     </option>
   </component>
-  <component name="RunManager" selected="Python.mainAdvantech">
+  <component name="RunManager" selected="Python.webflask">
     <configuration name="MySQL" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Advantech" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -67,6 +65,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MySQL.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Variable" type="PythonConfigurationType" factoryName="Python">
+      <module name="Advantech" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="sftp://pi@192.168.2.130:22/usr/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Variable.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -126,6 +146,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="webflask" type="PythonConfigurationType" factoryName="Python">
+      <module name="Advantech" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="sftp://pi@192.168.2.130:22/usr/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/webflask.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="js.build_tools.gulp">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -139,6 +181,8 @@
       <item itemvalue="Python.main" />
       <item itemvalue="Python.mainAdvantech" />
       <item itemvalue="Python.MySQL" />
+      <item itemvalue="Python.Variable" />
+      <item itemvalue="Python.webflask" />
     </list>
     <recent_temporary>
       <list>
@@ -172,55 +216,83 @@
       <updated>1578632263411</updated>
       <workItem from="1578632264874" duration="10651000" />
       <workItem from="1578646860490" duration="3619000" />
-      <workItem from="1578706066832" duration="4591000" />
+      <workItem from="1578706066832" duration="9220000" />
+      <workItem from="1578737316874" duration="98000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
     <state x="552" y="179" key="#Inspections" timestamp="1578642929828">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="179" key="#Inspections/0.0.1920.1040@0.0.1920.1040" timestamp="1578642929828" />
-    <state x="679" y="141" key="#MySQL" timestamp="1578641058199">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="543" y="112" key="#MySQL" timestamp="1578737436559">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="543" y="112" key="#MySQL/0.0.1536.824@0.0.1536.824" timestamp="1578737436559" />
     <state x="679" y="141" key="#MySQL/0.0.1920.1040@0.0.1920.1040" timestamp="1578641058199" />
+    <state x="496" y="26" key="#Variable" timestamp="1578737473286">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="496" y="26" key="#Variable/0.0.1536.824@0.0.1536.824" timestamp="1578737473286" />
     <state x="331" y="134" width="1092" height="718" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578706721301">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="331" y="134" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1578706721301" />
     <state x="414" y="176" width="1092" height="718" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578649003089" />
+    <state x="530" y="215" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578719006047">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="530" y="215" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1578719006047" />
     <state x="496" y="26" key="#mainAdvantech" timestamp="1578706508214">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="496" y="26" key="#mainAdvantech/0.0.1536.824@0.0.1536.824" timestamp="1578706508214" />
-    <state x="592" y="231" key="FileChooserDialogImpl" timestamp="1578706553782">
+    <state x="496" y="86" key="#webflask" timestamp="1578737413830">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="592" y="231" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1578706553782" />
+    <state x="496" y="86" key="#webflask/0.0.1536.824@0.0.1536.824" timestamp="1578737413830" />
+    <state x="393" y="6" key="CommitChangelistDialog2" timestamp="1578737580496">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="393" y="6" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1578737580496" />
+    <state x="592" y="231" key="FileChooserDialogImpl" timestamp="1578737426822">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="592" y="231" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1578737426822" />
     <state x="740" y="291" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1578648358070" />
-    <state width="764" height="255" key="GridCell.Tab.0.bottom" timestamp="1578710683970">
+    <state width="1493" height="242" key="GridCell.Tab.0.bottom" timestamp="1578737295253">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="764" height="255" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1578710683970" />
+    <state width="1493" height="242" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1578737295253" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578650482617" />
-    <state width="764" height="255" key="GridCell.Tab.0.center" timestamp="1578710683970">
+    <state width="1493" height="242" key="GridCell.Tab.0.center" timestamp="1578737295253">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="764" height="255" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1578710683970" />
+    <state width="1493" height="242" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1578737295253" />
     <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578650482616" />
-    <state width="764" height="255" key="GridCell.Tab.0.left" timestamp="1578710683970">
+    <state width="1493" height="242" key="GridCell.Tab.0.left" timestamp="1578737295253">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="764" height="255" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1578710683970" />
+    <state width="1493" height="242" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1578737295253" />
     <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578650482616" />
-    <state width="764" height="255" key="GridCell.Tab.0.right" timestamp="1578710683970">
+    <state width="1493" height="242" key="GridCell.Tab.0.right" timestamp="1578737295253">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="764" height="255" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1578710683970" />
+    <state width="1493" height="242" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1578737295253" />
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578650482617" />
     <state x="350" y="109" key="SettingsEditor" timestamp="1578706700852">
       <screen x="0" y="0" width="1536" height="824" />
@@ -231,11 +303,15 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578645204668" />
-    <state x="525" y="273" key="com.intellij.ide.util.TipDialog" timestamp="1578706066838">
+    <state x="525" y="273" key="com.intellij.ide.util.TipDialog" timestamp="1578737321917">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="525" y="273" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1578706066838" />
+    <state x="525" y="273" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1578737321917" />
     <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578646861357" />
+    <state x="463" y="17" width="609" height="789" key="find.popup" timestamp="1578719465892">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="463" y="17" width="609" height="789" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1578719465892" />
     <state x="689" y="197" key="ftp.server.browser" timestamp="1578706699140">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -244,6 +320,6 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Advantech$main.coverage" NAME="main Coverage Results" MODIFIED="1578647902905" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../ButtonStaticIp" />
     <SUITE FILE_PATH="coverage/Advantech$MySQL.coverage" NAME="MySQL Coverage Results" MODIFIED="1578642718844" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Advantech$mainAdvantech.coverage" NAME="mainAdvantech Coverage Results" MODIFIED="1578709490347" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Advantech$mainAdvantech.coverage" NAME="mainAdvantech Coverage Results" MODIFIED="1578737269184" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
