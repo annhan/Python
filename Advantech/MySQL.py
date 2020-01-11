@@ -1,26 +1,6 @@
 import MySQLdb as mariadb
-#from mainAdvantech import ip_gateway, ip_address, ip_subnet, wifi_ip_gateway, wifi_ip_address, ssid, wpa_password
+import Variable
 
-#global ip_gateway, ip_address, ip_subnet, wifi_ip_gateway, wifi_ip_address
-#global ssid, wpa_password
-#global ip_gateway
-#global ip_address
-#global ip_subnet, wifi_ip_gateway, wifi_ip_address
-#global ssid, wpa_password
-############
-## Bien cho Wifi
-##################
-ssid=""
-wpa_password=""
-wifi_ip_address="192.168.65.130"
-wifi_ip_gateway="192.168.99.1"
-infor_wifi_found=""
-############
-## Bien cho Wire NEtword
-##################
-ip_address="192.168.99.130"
-ip_subnet="255.255.255.0"
-ip_gateway="192.168.99.1"
 TABLES_CREATE = {}
 TABLES_CREATE['infor_network'] = (
         """CREATE TABLE infor_network(
@@ -38,13 +18,13 @@ TABLES_CREATE['infor_network_wifi'] = (
          wifi_password CHAR(60))""")
 TABLES_INSERT = {}
 TABLES_INSERT['infor_network'] = (
-        "INSERT INTO infor_network(ip,gateway,subnet,wifi_name,wifi_password) VALUES ('%s','%s','%s','%s','%s')"%(ip_address, ip_gateway, ip_subnet, 'mHomeBH','123789456'))
+        "INSERT INTO infor_network(ip,gateway,subnet,wifi_name,wifi_password) VALUES ('%s','%s','%s','%s','%s')"%(Variable.ip_address, Variable.ip_gateway, Variable.ip_subnet, 'mHomeBH','123789456'))
 TABLES_INSERT['infor_network_wifi'] = (
-        "INSERT INTO infor_network_wifi(ip,gateway,subnet,wifi_name,wifi_password) VALUES ('%s','%s','%s','%s','%s')"%(wifi_ip_address, wifi_ip_gateway, ip_subnet, 'mHomeBH','123789456'))
+        "INSERT INTO infor_network_wifi(ip,gateway,subnet,wifi_name,wifi_password) VALUES ('%s','%s','%s','%s','%s')"%(Variable.wifi_ip_address, Variable.wifi_ip_gateway, Variable.ip_subnet, 'mHomeBH','123789456'))
 
 def load_database():
-    global wifi_ip_gateway,wifi_ip_address,ssid,wpa_password
-    global ip_gateway,ip_address,ip_subnet
+    #global wifi_ip_gateway,wifi_ip_address,ssid,wpa_password
+    #global ip_gateway,ip_address,ip_subnet
     db = mariadb.connect("localhost", "root", "root", "advantechConf")
     cursor = db.cursor()
     for name, ddl in TABLES_CREATE.iteritems():
@@ -66,11 +46,11 @@ def load_database():
                     ma_serial = row[0]
                     print "Ma serial ",ma_serial
                 elif name=="infor_network_wifi":
-                    wifi_ip_address, wifi_ip_gateway, ssid, wpa_password = row[0], row[1], row[3], row[4]
-                    print " WIFI " ,wifi_ip_address, wifi_ip_gateway, ssid, wpa_password
+                    Variable.wifi_ip_address, Variable.wifi_ip_gateway, Variable.ssid, Variable.wpa_password = row[0], row[1], row[3], row[4]
+                    print " WIFI " ,Variable.wifi_ip_address, Variable.wifi_ip_gateway, Variable.ssid, Variable.wpa_password
                 elif name=="infor_network":
-                    ip_address,ip_subnet,ip_gateway=row[0],row[2],row[1]
-                    print " IP ", ip_address, ip_subnet, ip_gateway
+                    Variable.ip_address,Variable.ip_subnet,Variable.ip_gateway=row[0],row[2],row[1]
+                    print " IP ", Variable.ip_address, Variable.ip_subnet, Variable.ip_gateway
                 variable_loadata=variable_loadata+1
             if variable_loadata==0:
                 print("Inser table {}: ".format(name))
