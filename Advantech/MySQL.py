@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import MySQLdb as mariadb
 import Variable
 
@@ -33,27 +34,6 @@ TABLES_INSERT['infor_network_wifi'] = (
         "INSERT INTO infor_network_wifi(ip,gateway,subnet,wifi_name,wifi_password) VALUES ('%s','%s','%s','%s','%s')"%(Variable.wifi_ip_address, Variable.wifi_ip_gateway, Variable.ip_subnet, 'mHomeBH','123789456'))
 TABLES_INSERT['mqttConf'] = (
         "INSERT INTO mqttConf(serverMQTT,portMQTT,userMQTT,passwordMQTT,TopicSub1,TopicSub2,TopicPub1,TopicPub2) VALUES ('%s','%d','%s','%s','%s','%s','%s','%s')"%(Variable.mqttServer, Variable.mqttPort, Variable.mqttUser, Variable.mqttPass ,'x','x','x','x'))
-def TABLESINSERT():
-    name = 'mqttConf'
-    db = mariadb.connect("localhost", "root", "root", "advantechConf")
-    cursor = db.cursor()
-    cursor.execute(ddl)
-    db.commit()
-    cursor.execute(TABLES_INSERT[name])
-    db.commit()
-    db.close()
-def deletetable():
-    name = 'mqttConf'
-    db = mariadb.connect("localhost", "root", "root", "advantechConf")
-    cursor = db.cursor()
-    print("Delete table {}: ".format(name))
-    sql = "DROP TABLE {};".format(name)
-    cursor.execute(sql)
-    db.commit()
-    db.close()
-
-
-
 #show table;
 def load_database():
     #global wifi_ip_gateway,wifi_ip_address,ssid,wpa_password

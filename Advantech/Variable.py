@@ -1,3 +1,4 @@
+#!/usr/bin/python
 ############
 ## Bien cho Wifi
 ##################

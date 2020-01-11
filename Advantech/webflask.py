@@ -1,5 +1,8 @@
+#!/usr/bin/python
 # -*- coding: utf8 -*-
-
+#chạy pip install waitress
+#    from waitress import serve
+#    serve(app, host="0.0.0.0", port=8080)
 from os.path import dirname, join
 from flask import Flask, render_template
 from flask import request

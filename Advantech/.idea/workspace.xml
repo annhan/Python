@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b98b234-9863-4581-9422-f5f0bf20fcdf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/setMqtt.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MySQL.py" beforeDir="false" afterPath="$PROJECT_DIR$/MySQL.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Variable.py" beforeDir="false" afterPath="$PROJECT_DIR$/Variable.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mainAdvantech.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainAdvantech.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/set_wifi.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/set_wifi.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webflask.py" beforeDir="false" afterPath="$PROJECT_DIR$/webflask.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -224,7 +221,7 @@
       <workItem from="1578632264874" duration="10651000" />
       <workItem from="1578646860490" duration="3619000" />
       <workItem from="1578706066832" duration="9220000" />
-      <workItem from="1578737316874" duration="8834000" />
+      <workItem from="1578737316874" duration="17242000" />
     </task>
     <task id="LOCAL-00001" summary="up">
       <created>1578737581198</created>
@@ -304,26 +301,42 @@
     </state>
     <state x="592" y="231" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1578737426822" />
     <state x="740" y="291" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1578648358070" />
-    <state width="1493" height="242" key="GridCell.Tab.0.bottom" timestamp="1578746797244">
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom" timestamp="1578760937043">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="242" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1578746797244" />
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1578760937043" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578650482617" />
-    <state width="1493" height="242" key="GridCell.Tab.0.center" timestamp="1578746797244">
+    <state width="1493" height="261" key="GridCell.Tab.0.center" timestamp="1578760937043">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="242" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1578746797244" />
+    <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1578760937043" />
     <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578650482616" />
-    <state width="1493" height="242" key="GridCell.Tab.0.left" timestamp="1578746797244">
+    <state width="1493" height="261" key="GridCell.Tab.0.left" timestamp="1578760937043">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="242" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1578746797244" />
+    <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1578760937043" />
     <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578650482616" />
-    <state width="1493" height="242" key="GridCell.Tab.0.right" timestamp="1578746797244">
+    <state width="1493" height="261" key="GridCell.Tab.0.right" timestamp="1578760937043">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="242" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1578746797244" />
+    <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1578760937043" />
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578650482617" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1578760937044">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1578760937044" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1578760937043">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1578760937043" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1578760937043">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1578760937043" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1578760937043">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1578760937043" />
     <state x="350" y="109" key="SettingsEditor" timestamp="1578706700852">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -351,6 +364,6 @@
     <SUITE FILE_PATH="coverage/Advantech$webflask.coverage" NAME="webflask Coverage Results" MODIFIED="1578738982895" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Advantech$main.coverage" NAME="main Coverage Results" MODIFIED="1578647902905" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../ButtonStaticIp" />
     <SUITE FILE_PATH="coverage/Advantech$MySQL.coverage" NAME="MySQL Coverage Results" MODIFIED="1578642718844" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Advantech$mainAdvantech.coverage" NAME="mainAdvantech Coverage Results" MODIFIED="1578746797237" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Advantech$mainAdvantech.coverage" NAME="mainAdvantech Coverage Results" MODIFIED="1578760859269" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
