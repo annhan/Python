@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b98b234-9863-4581-9422-f5f0bf20fcdf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cai mySQL.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Cai mySQL.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MySQL.py" beforeDir="false" afterPath="$PROJECT_DIR$/MySQL.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mainAdvantech.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainAdvantech.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ButtonStaticIp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ButtonStaticIp/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +43,14 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="web.server" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="Advantech" is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="Advantech" />
+      </console-settings>
+    </option>
   </component>
   <component name="RunManager" selected="Python.mainAdvantech">
     <configuration name="MySQL" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -94,12 +104,19 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="sftp://pi@192.168.2.130:22/usr/bin/python" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <PathMappingSettings>
+        <option name="pathMappings">
+          <list>
+            <mapping local-root="$PROJECT_DIR$" remote-root="/home/pi/Advantech" />
+          </list>
+        </option>
+      </PathMappingSettings>
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mainAdvantech.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -118,6 +135,11 @@
       <envs />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.mainAdvantech" />
+      <item itemvalue="Python.MySQL" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.mainAdvantech" />
@@ -150,6 +172,7 @@
       <updated>1578632263411</updated>
       <workItem from="1578632264874" duration="10651000" />
       <workItem from="1578646860490" duration="3619000" />
+      <workItem from="1578706066832" duration="4591000" />
     </task>
     <servers />
   </component>
@@ -165,46 +188,62 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="679" y="141" key="#MySQL/0.0.1920.1040@0.0.1920.1040" timestamp="1578641058199" />
-    <state x="414" y="176" width="1092" height="718" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578649003089">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="331" y="134" width="1092" height="718" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578706721301">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="331" y="134" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1578706721301" />
     <state x="414" y="176" width="1092" height="718" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578649003089" />
-    <state x="740" y="291" key="FileChooserDialogImpl" timestamp="1578648358070">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="496" y="26" key="#mainAdvantech" timestamp="1578706508214">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="496" y="26" key="#mainAdvantech/0.0.1536.824@0.0.1536.824" timestamp="1578706508214" />
+    <state x="592" y="231" key="FileChooserDialogImpl" timestamp="1578706553782">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="592" y="231" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1578706553782" />
     <state x="740" y="291" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1578648358070" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1578650482617">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="764" height="255" key="GridCell.Tab.0.bottom" timestamp="1578710683970">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="764" height="255" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1578710683970" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578650482617" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1578650482616">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="764" height="255" key="GridCell.Tab.0.center" timestamp="1578710683970">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="764" height="255" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1578710683970" />
     <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578650482616" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1578650482616">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="764" height="255" key="GridCell.Tab.0.left" timestamp="1578710683970">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="764" height="255" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1578710683970" />
     <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578650482616" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1578650482617">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="764" height="255" key="GridCell.Tab.0.right" timestamp="1578710683970">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="764" height="255" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1578710683970" />
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578650482617" />
-    <state x="438" y="247" key="SettingsEditor" timestamp="1578649007544">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="350" y="109" key="SettingsEditor" timestamp="1578706700852">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="350" y="109" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1578706700852" />
     <state x="438" y="247" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1578649007544" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1578645204668">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578645204668" />
-    <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1578646861357">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="525" y="273" key="com.intellij.ide.util.TipDialog" timestamp="1578706066838">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="525" y="273" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1578706066838" />
     <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578646861357" />
+    <state x="689" y="197" key="ftp.server.browser" timestamp="1578706699140">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="689" y="197" key="ftp.server.browser/0.0.1536.824@0.0.1536.824" timestamp="1578706699140" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Advantech$MySQL.coverage" NAME="MySQL Coverage Results" MODIFIED="1578642718844" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Advantech$mainAdvantech.coverage" NAME="mainAdvantech Coverage Results" MODIFIED="1578650054266" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Advantech$main.coverage" NAME="main Coverage Results" MODIFIED="1578647902905" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../ButtonStaticIp" />
+    <SUITE FILE_PATH="coverage/Advantech$MySQL.coverage" NAME="MySQL Coverage Results" MODIFIED="1578642718844" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Advantech$mainAdvantech.coverage" NAME="mainAdvantech Coverage Results" MODIFIED="1578709490347" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

@@ -2,23 +2,8 @@
 from os.path import dirname, join
 from flask import Flask, render_template
 from flask import request
-from MySQL import *
+import MySQL
 
-
-############
-## Bien cho Wifi
-##################
-ssid=""
-wpa_password=""
-wifi_ip_address="192.168.99.130"
-wifi_ip_gateway="192.168.99.1"
-infor_wifi_found=""
-############
-## Bien cho Wire NEtword
-##################
-ip_address="192.168.99.130"
-ip_subnet="255.255.255.0"
-ip_gateway="192.168.99.1"
 ##################3
 ## Ham SET STATIC IP CHO PI
 ############################
@@ -36,14 +21,14 @@ def write_netword():
     f.write("\n")
     f.write("interface eth0\n")
     f.write("\n")
-    f.write("static ip_address={}/24\n".format(ip_address))
-    f.write("static routers={}\n".format(ip_gateway))
+    f.write("static ip_address={}/24\n".format(MySQL.ip_address))
+    f.write("static routers={}\n".format(MySQL.ip_gateway))
     f.write("static domain_nam_servers=8.8.8.8\n")
     f.write("\n")
     f.write("interface wlan0\n")
     f.write("\r\n")
-    f.write("static ip_address={}/24\n".format(wifi_ip_address))
-    f.write("static routers={}\n".format(wifi_ip_gateway))
+    f.write("static ip_address={}/24\n".format(MySQL.wifi_ip_address))
+    f.write("static routers={}\n".format(MySQL.wifi_ip_gateway))
     f.write("static domain_nam_servers=8.8.8.8\n")
     f.truncate()
     f.close()
@@ -51,7 +36,6 @@ def write_netword():
 ## Ham lưu Wifi cho raspberry kết nối
 #############################
 def write_wifi():
-    global ssid,wpa_password
     f = open("/etc/wpa_supplicant/wpa_supplicant.conf", "r+")
     d = f.readlines()
     f.seek(0)
@@ -61,9 +45,9 @@ def write_wifi():
             break
         else:
             f.write(i)
-    f.write("ssid=\"{}\"\n".format(ssid))
+    f.write("ssid=\"{}\"\n".format(MySQL.ssid))
     f.write("scan_ssid=1\n")
-    f.write("psk=\"{}\"\n".format(wpa_password))
+    f.write("psk=\"{}\"\n".format(MySQL.wpa_password))
     f.write("}\r\n")
     f.truncate()
     f.close()
@@ -73,11 +57,10 @@ def trang_chu():
     return render_template('index.html')
 @app.route('/setip', methods=['POST', 'GET'])
 def set_ip():
-    global ip_address,ip_gateway,ip_subnet,wifi_ip_gateway,wifi_ip_address
     if request.method == 'POST':
         if request.headers['Content-Type'] == 'application/json':
             return ("JSON Message:  Not Accept") #" + json.dumps(request.json + "
-        ip_address_new,ip_subnet_new,ip_gateway_new=request.form['html_ip'],request.form['html_subnet'],request.form['html_gateway']
+        MySQL.ip_address_new,MySQL.ip_subnet_new,MySQL.ip_gateway_new=request.form['html_ip'],request.form['html_subnet'],request.form['html_gateway']
         if len(ip_address_new) < 7:
             print("Khong gia tri IP")
             return "Dia chi IP ngan"
@@ -89,14 +72,14 @@ def set_ip():
             return "Error IP trung voi mang VLAN"
         else:
             ip_address,ip_subnet,ip_gateway=ip_address_new,ip_subnet_new,ip_gateway_new
-            update_database("UPDATE infor_network SET ip='{}',gateway= '{}',subnet= '{}'".format(ip_address,ip_gateway,ip_subnet))
+            MySQL.update_database("UPDATE infor_network SET ip='{}',gateway= '{}',subnet= '{}'".format(MySQL.ip_address,MySQL.ip_gateway,MySQL.ip_subnet))
             write_netword()
         #os.system('sudo ifconfig eth0 down')
         #os.system('sudo ifconfig eth0 {}'.format(ip_address))
         #os.system('sudo ifconfig eth0 up')
             return "OK"
     else:
-        return render_template('set_ip.html', ip=ip_address,gateway=ip_gateway,subnet=ip_subnet)
+        return render_template('set_ip.html', ip=MySQL.ip_address,gateway=MySQL.ip_gateway,subnet=MySQL.ip_subnet)
 @app.route('/setmaso', methods=['POST', 'GET'])
 def set_maso():
     global so_serial,ma_serial
@@ -107,23 +90,22 @@ def set_maso():
             return "NOT OK"
         else:
             ma_serial = ma_tam
-            update_database("UPDATE Serial_Raspberry SET So_Serial='{}'".format(ma_serial))
+            MySQL.update_database("UPDATE Serial_Raspberry SET So_Serial='{}'".format(ma_serial))
             return "OK"
     else:
         return render_template('set_maso.html', uuid=so_serial,macode=ma_serial)
 @app.route('/setwifi', methods=['POST', 'GET'])
 def set_wifi():
-    global ip_address,ip_gateway,ip_subnet,wpa_password,ssid,wifi_ip_address,wifi_ip_gateway,infor_wifi_found
     if request.method == 'POST':
         if request.headers['Content-Type'] == 'application/json':
             return ("JSON Message:  Not Accept") #" + json.dumps(request.json + "
         ssid_new,wpa_password_new,wifi_ip_address_new,wifi_ip_gateway_new=request.form['html_ssid'],request.form['html_wpa_password'],request.form['html_ip_wifi'],request.form['html_gateway_wifi']
-        if wifi_ip_address_new==ip_address:
+        if wifi_ip_address_new==MySQL.ip_address:
             print ("Dia chi trung IP voi Wire")
             return "Error IP trung voi mmang LAN"
         else:
-            ssid,wpa_password,wifi_ip_address,wifi_ip_gateway=ssid_new,wpa_password_new,wifi_ip_address_new,wifi_ip_gateway_new
-            update_database("UPDATE infor_network_wifi SET wifi_name='{}',wifi_password='{}',ip='{}',gateway= '{}'".format(ssid,wpa_password,wifi_ip_address,wifi_ip_gateway))
+            MySQL.ssid,MySQL.wpa_password,MySQL.wifi_ip_address,MySQL.wifi_ip_gateway=ssid_new,wpa_password_new,wifi_ip_address_new,wifi_ip_gateway_new
+            MySQL.update_database("UPDATE infor_network_wifi SET wifi_name='{}',wifi_password='{}',ip='{}',gateway= '{}'".format(MySQL.ssid,MySQL.wpa_password,MySQL.wifi_ip_address,MySQL.wifi_ip_gateway))
             write_netword()
             write_wifi()
             #os.system('sudo ifconfig eth0 down')
@@ -131,10 +113,11 @@ def set_wifi():
             #os.system('sudo ifconfig eth0 up')
             return "OK"
     else:
-        return render_template('set_wifi.html', ssid=ssid,wpa_pass=wpa_password,ip_wifi=wifi_ip_address,gateway_wifi=wifi_ip_gateway,infor_wifi_found=infor_wifi_found)
+        return render_template('set_wifi.html', ssid=MySQL.ssid,wpa_pass=MySQL.wpa_password,ip_wifi=MySQL.wifi_ip_address,gateway_wifi=MySQL.wifi_ip_gateway,infor_wifi_found=0)
 
 if __name__ == '__main__':
-    load_database()
+    MySQL.load_database()
+    print MySQL.ip_gateway, MySQL.ip_address, MySQL.ip_subnet, MySQL.wifi_ip_gateway, MySQL.wifi_ip_address,MySQL.ssid, MySQL.wpa_password
     app.jinja_env.auto_reload = True
     app.config['TEMPLATES_AUTO_RELOAD'] = True
     app.run(host='0.0.0.0',port=8080,debug=True,use_reloader=False)

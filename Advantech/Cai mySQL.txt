@@ -34,8 +34,19 @@ WifiSetting
 Cai Wifi
 Vao /etc/wpa_supplicant/wpa_supplicant.conf
 
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+
 network={
 ssid="scc"
 scan_ssid=1
 psk="ss"
 }
+
+///////////////////////////////////
+ File Static IP:
+
+ sudo nano /etc/dhcpcd.conf
+
+add them dong cuoi cung
+nohook lookup-hostname
