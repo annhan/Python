@@ -10,28 +10,14 @@ import multiprocessing
 bien = 0
 q  = Queue.Queue(10)
 processQueue = multiprocessing.Queue()
-class Worker(multiprocessing.Process):
-    def __init__(self,processQueue):
-        self.q=processQueue
-        multiprocessing.Process.__init__(self)
-        print("process init")
-    def run(self):
-        global bien
-        while (True):
-            print "running"
-            try:
-                work = self.q.get(timeout=0.01)
-                print("Process ", work)
-            except Queue.Empty :
-                # Handle empty queue here
-                pass
-            else:
-                pass
-            if q.qsize() > 0 :
-                time.sleep(2.0)
-            else:
-                time.sleep(2.0)
-
+def Worker(processQueue):
+    while (True):
+        try:
+            work = processQueue.get()
+            print "process " , work
+            time.sleep(1.0)
+        except:
+            pass
 class server(threading.Thread):
     global app
     def __init__(self):
@@ -75,8 +61,8 @@ class Test1(threading.Thread):
             print("S")
             time.sleep(2.0)
 if __name__ == '__main__':
+    global bien
     try:
-        global bien
         load_database()
         FlaskWeb = server()
         FlaskWeb.start()
@@ -85,12 +71,14 @@ if __name__ == '__main__':
         #Test.start()
         #Test3 = Test1(q)
         #Test3.start()
-        p = Worker(q)
-        p.start()
+        process1=multiprocessing.Process(target=Worker, args=[processQueue])
+        process1.start()
+        #p = Worker(q)
+        #p.start()
         chuydoi=0
         while (1):
             q.put(bien,0.1)
-            processQueue.put(bien,timeout=0.1)
+            processQueue.put(bien)
             bien= bien +1
             print "so lan chuyen ",bien
             time.sleep(5.0)
