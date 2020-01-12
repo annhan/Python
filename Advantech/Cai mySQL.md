@@ -60,6 +60,15 @@ add them dong cuoi cung
 ```
 nohook lookup-hostname
 ```
+Có thể cài đặt ip static nhanh chóng trong lần chạy, khi reset là hết bằng dòng lệnh
+
+``` 
+    import os   
+    os.system('sudo ifconfig eth0 down')
+    os.system('sudo ifconfig eth0 192.168.1.10')
+    os.system('sudo ifconfig eth0 up')
+```
+
 ---------
 threading  và process
 ------------
