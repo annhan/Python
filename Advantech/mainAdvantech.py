@@ -66,15 +66,8 @@ if __name__ == '__main__':
         load_database()
         FlaskWeb = server()
         FlaskWeb.start()
-        #Test = Test(q)
-        #Test.daemon =False #daemon la luong van chay khi ket thuc chuong trinh
-        #Test.start()
-        #Test3 = Test1(q)
-        #Test3.start()
         process1=multiprocessing.Process(target=Worker, args=[processQueue])
         process1.start()
-        #p = Worker(q)
-        #p.start()
         chuydoi=0
         while (1):
             q.put(bien,0.1)
