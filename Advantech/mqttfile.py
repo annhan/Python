@@ -55,10 +55,10 @@ class MyMQTTClass(mqtt.Client):
         self.connect("localhost", 1883, 60)
         rc = 0
         while rc == 0:
-            rc = self.loop()
-        return rc
-
-
+            try:
+                self.loop_forever()
+            except:
+                print "d"
 # Advantech/MAC_of_WISE/Device_Status
 # subscribe Advantech/00D0C9E27D59E/data {"s":8,"t":"2020-01-13T06:56:09Z","q":192,"c":0,"di1":false,"di2":false,"di3":false,"di4":false,"di5":false,"di6":false,"di7":false,"di8":false}
 # publish   Advantech/00D0C9E27959/ctl/do1 {"v":true} / {"v":false}
