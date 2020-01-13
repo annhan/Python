@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b98b234-9863-4581-9422-f5f0bf20fcdf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/mqttfile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cai mySQL.md" beforeDir="false" afterPath="$PROJECT_DIR$/Cai mySQL.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySQL.py" beforeDir="false" afterPath="$PROJECT_DIR$/MySQL.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainAdvantech.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainAdvantech.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,8 +16,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -41,7 +44,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="web.server" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -221,7 +224,10 @@
       <workItem from="1578737316874" duration="17242000" />
       <workItem from="1578790578405" duration="26000" />
       <workItem from="1578790615280" duration="7488000" />
-      <workItem from="1578821577199" duration="1646000" />
+      <workItem from="1578821577199" duration="4237000" />
+      <workItem from="1578906477210" duration="1793000" />
+      <workItem from="1578908297413" duration="6614000" />
+      <workItem from="1578924300209" duration="6318000" />
     </task>
     <task id="LOCAL-00001" summary="up">
       <created>1578737581198</created>
@@ -277,10 +283,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="496" y="26" key="#Variable/0.0.1536.824@0.0.1536.824" timestamp="1578737473286" />
-    <state x="331" y="134" width="1092" height="718" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578706721301">
+    <state x="331" y="134" width="1092" height="718" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578908416365">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="331" y="134" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1578706721301" />
+    <state x="331" y="134" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1578908416365" />
     <state x="414" y="176" width="1092" height="718" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578649003089" />
     <state x="530" y="215" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578719006047">
       <screen x="0" y="0" width="1536" height="824" />
@@ -303,25 +309,25 @@
     </state>
     <state x="592" y="231" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1578737426822" />
     <state x="740" y="291" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1578648358070" />
-    <state width="1493" height="2" key="GridCell.Tab.0.bottom" timestamp="1578823260062">
+    <state width="1493" height="155" key="GridCell.Tab.0.bottom" timestamp="1578932201455">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="2" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1578823260062" />
+    <state width="1493" height="155" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1578932201455" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578650482617" />
-    <state width="1493" height="2" key="GridCell.Tab.0.center" timestamp="1578823260062">
+    <state width="1493" height="155" key="GridCell.Tab.0.center" timestamp="1578932201455">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="2" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1578823260062" />
+    <state width="1493" height="155" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1578932201455" />
     <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578650482616" />
-    <state width="1493" height="2" key="GridCell.Tab.0.left" timestamp="1578823260062">
+    <state width="1493" height="155" key="GridCell.Tab.0.left" timestamp="1578932201455">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="2" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1578823260062" />
+    <state width="1493" height="155" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1578932201455" />
     <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578650482616" />
-    <state width="1493" height="2" key="GridCell.Tab.0.right" timestamp="1578823260062">
+    <state width="1493" height="155" key="GridCell.Tab.0.right" timestamp="1578932201455">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="2" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1578823260062" />
+    <state width="1493" height="155" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1578932201455" />
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578650482617" />
     <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1578821218399">
       <screen x="0" y="0" width="1536" height="824" />
@@ -339,19 +345,19 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1578821218399" />
-    <state x="350" y="109" key="SettingsEditor" timestamp="1578706700852">
+    <state x="350" y="109" key="SettingsEditor" timestamp="1578914912204">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="350" y="109" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1578706700852" />
+    <state x="350" y="109" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1578914912204" />
     <state x="438" y="247" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1578649007544" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1578645204668">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578645204668" />
-    <state x="525" y="273" key="com.intellij.ide.util.TipDialog" timestamp="1578821578485">
+    <state x="525" y="273" key="com.intellij.ide.util.TipDialog" timestamp="1578924302086">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="525" y="273" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1578821578485" />
+    <state x="525" y="273" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1578924302086" />
     <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578646861357" />
     <state x="463" y="17" width="609" height="789" key="find.popup" timestamp="1578719465892">
       <screen x="0" y="0" width="1536" height="824" />
@@ -366,6 +372,6 @@
     <SUITE FILE_PATH="coverage/Advantech$webflask.coverage" NAME="webflask Coverage Results" MODIFIED="1578738982895" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Advantech$main.coverage" NAME="main Coverage Results" MODIFIED="1578647902905" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../ButtonStaticIp" />
     <SUITE FILE_PATH="coverage/Advantech$MySQL.coverage" NAME="MySQL Coverage Results" MODIFIED="1578642718844" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Advantech$mainAdvantech.coverage" NAME="mainAdvantech Coverage Results" MODIFIED="1578823260054" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Advantech$mainAdvantech.coverage" NAME="mainAdvantech Coverage Results" MODIFIED="1578932201442" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

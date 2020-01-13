@@ -36,8 +36,6 @@ TABLES_INSERT['mqttConf'] = (
         "INSERT INTO mqttConf(serverMQTT,portMQTT,userMQTT,passwordMQTT,TopicSub1,TopicSub2,TopicPub1,TopicPub2) VALUES ('%s','%d','%s','%s','%s','%s','%s','%s')"%(Variable.mqttServer, Variable.mqttPort, Variable.mqttUser, Variable.mqttPass ,'x','x','x','x'))
 #show table;
 def load_database():
-    #global wifi_ip_gateway,wifi_ip_address,ssid,wpa_password
-    #global ip_gateway,ip_address,ip_subnet
     db = mariadb.connect("localhost", "root", "root", "advantechConf")
     cursor = db.cursor()
     for name, ddl in TABLES_CREATE.iteritems():
@@ -65,8 +63,10 @@ def load_database():
                 elif name=="infor_network_wifi":
                     Variable.wifi_ip_address, Variable.wifi_ip_gateway, Variable.ssid, Variable.wpa_password = row[0], row[1], row[3], row[4]
                     print " WIFI " ,Variable.wifi_ip_address, Variable.wifi_ip_gateway, Variable.ssid, Variable.wpa_password
+                elif name == "infor_network":
+                    Variable.ip_address,Variable.ip_gateway,Variable.ip_subnet = row[0], row[1],  row[2]
+                    print " WIRE ", Variable.ip_address,Variable.ip_gateway,Variable.ip_subnet
                 elif name=="mqttConf":
-                    print "dung"
                     Variable.mqttServer,Variable.mqttPort,Variable.mqttUser,Variable.mqttPass,Variable.mqttTopicSub1,Variable.mqttTopicSub2,Variable.mqttTopicPub1,Variable.mqttTopicPub2=row[0],int(row[1]),row[2],row[3],row[4],row[5],row[6],row[7]
                     print " MQTT ", Variable.mqttServer,Variable.mqttPort,Variable.mqttUser,Variable.mqttPass,Variable.mqttTopicSub1,Variable.mqttTopicSub2,Variable.mqttTopicPub1,Variable.mqttTopicPub2
                 variable_loadata=variable_loadata+1
