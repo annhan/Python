@@ -80,8 +80,11 @@ Khác biệt process ứng dụng cho nhiều core, bộ nhớ không liên thô
 AutoStart
 --------------------
 Ba phương pháp được đề cập trong hướng dẫn này là:
+
 •	RC.local - Có thể là cách dễ nhất và đơn giản nhất để chương trình của bạn chạy khi khởi động. Nhược điểm là các tác vụ bắt đầu với RC.local xảy ra trước khi hệ thống windows X khởi động, điều đó có nghĩa là bạn sẽ không có quyền truy cập vào các yếu tố giao diện người dùng đồ họa (GUI).
+
 •	autostart - Được sử dụng để tự động chạy các chương trình của bạn sau khi LXDE (môi trường máy tính để bàn được sử dụng bởi Raspbian) bắt đầu. Nó hơi phức tạp hơn một chút so với RC.local, nhưng nó cho phép bạn chạy các chương trình yêu cầu các yếu tố đồ họa.
+
 •	systemd - Cách mới và phổ biến để tự động khởi động các chương trình trong Linux. Đây chắc chắn là phức tạp nhất trong ba, nhưng nó cho phép bạn chạy trước khi LXDE bắt đầu, đợi cho đến khi bạn có quyền truy cập vào các quy trình khác (ví dụ: mạng, máy tính để bàn đồ họa) hoặc đơn giản là khởi động lại chương trình của bạn nhiều lần cho đến khi nó hoạt động. Như vậy, đây là một cách mạnh mẽ để tạo và quản lý các dịch vụ chạy trong nền.
 
 - Cách systemd
