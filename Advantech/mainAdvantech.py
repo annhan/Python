@@ -4,8 +4,10 @@ import time
 from MySQL import *
 from webflask import runningFlask , app
 import os,sys, threading, logging
+from multiprocessing import Process
 from mqttfile import Test
 import Queue
+from CheckButton import Worker
 #import multiprocessing
 #from multiprocessing import Process
 bien = 0
@@ -39,12 +41,10 @@ if __name__ == '__main__':
         FlaskWeb.start()
         mqttClient = Test()
         mqttClient.start()
+        p = Process(target=Worker)
+        p.start()
         chuydoi=0
         while (1):
-            #q.put(bien,0.1)
-            #processQueue.put(bien)
-            #bien= bien +1
-            #print "so lan chuyen ",bien
             time.sleep(5.0)
     except KeyboardInterrupt:
         print "thoat chuong trinh"

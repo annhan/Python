@@ -142,7 +142,10 @@ systemctl status clock.service
 sudo systemctl stop clock.service
 sudo systemctl start clock.service
 ```
+```
+Chương trình này ta dung tên advantech.service
 
+```
 
 
 Điều này có thể hữu ích để khởi động lại một dịch vụ nếu bạn đã thay đổi dịch vụ mà không phải khởi động lại hệ thống. Chỉ cần nhớ chạy sudo systemctl daemon-reloadnếu bạn thực hiện bất kỳ thay đổi nào đối với tệp .service!
