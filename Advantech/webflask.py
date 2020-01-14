@@ -133,13 +133,13 @@ def setMqtt():
         Variable.mqttTopicSub1 = request.form['httpMqttTopicPub1']
         Variable.mqttTopicPub2 = request.form['httpMqttTopicPub2']
         update_database("UPDATE mqttConf SET serverMQTT='{}',portMQTT={},userMQTT='{}',passwordMQTT = '{}',TopicSub1= '{}',TopicSub2= '{}',TopicPub1= '{}',TopicPub2= '{}'".format(Variable.mqttServer, Variable.mqttPort, Variable.mqttUser, Variable.mqttPass ,Variable.mqttTopicSub1,Variable.mqttTopicSub2,Variable.mqttTopicPub1,Variable.mqttTopicPub2))
-        print Variable.mqttServer, Variable.mqttPort, Variable.mqttUser, Variable.mqttPass ,Variable.mqttTopicSub1,Variable.mqttTopicSub2,Variable.mqttTopicPub1,Variable.mqttTopicPub2
+        print (Variable.mqttServer, Variable.mqttPort, Variable.mqttUser, Variable.mqttPass ,Variable.mqttTopicSub1,Variable.mqttTopicSub2,Variable.mqttTopicPub1,Variable.mqttTopicPub2)
         return "OK"
     else:
         return render_template('setMqtt.html',mqttServer=Variable.mqttServer, mqttPort = Variable.mqttPort, mqttUser = Variable.mqttUser, mqttPass = Variable.mqttPass ,mqttTopicSub1=Variable.mqttTopicSub1,mqttTopicSub2=Variable.mqttTopicSub2,mqttTopicPub1=Variable.mqttTopicPub1,mqttTopicPub2=Variable.mqttTopicPub2)
 
 def runningFlask():
-    print "chay wweb"
+    print ("chay wweb")
     #app.jinja_env.auto_reload = True
     #app.config['TEMPLATES_AUTO_RELOAD'] = True
     #app.run(host='0.0.0.0',port=8080,debug=True,use_reloader=False)

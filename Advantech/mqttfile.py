@@ -52,8 +52,6 @@ class MyMQTTClass:
 
     def on_message(self, mqttc, obj, msg):
         #print(msg.topic+" "+str(msg.qos)+" "+str(msg.payload))
-        #{"status":"connect","name":"WISE-4012","macid":"00D0C9E27959","ipaddr":"192.168.135.156"}
-        bien = "00D0C9E27959"
         if "/Device_Status" in msg.topic:
             print "data ", msg.topic
             try:
@@ -99,7 +97,7 @@ class MyMQTTClass:
                 self._mqttc.loop_forever()
             except:
                 pass
-# Advantech/MAC_of_WISE/Device_Status
+# Advantech/MAC_of_WISE/Device_Status   {"status":"connect","name":"WISE-4012","macid":"00D0C9E27959","ipaddr":"192.168.135.156"}
 # subscribe Advantech/00D0C9E27D59E/data {"s":8,"t":"2020-01-13T06:56:09Z","q":192,"c":0,"di1":false,"di2":false,"di3":false,"di4":false,"di5":false,"di6":false,"di7":false,"di8":false}
 # publish   Advantech/00D0C9E27959/ctl/do1 {"v":true} / {"v":false}
 class Test(threading.Thread):

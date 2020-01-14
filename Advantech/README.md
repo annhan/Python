@@ -117,7 +117,7 @@ Không cần Gui thi
 Tạo một tệp .service mới trong thư mục systemd:
 SAO CHÉP MÃ
 ```
-sudo nano /lib/systemd/system/blink.service
+sudo nano /lib/systemd/system/advantech.service
 ```
 Nhập văn bản sau vào tài liệu:
 SAO CHÉP MÃ
@@ -127,7 +127,7 @@ Description=Blink my LED
 After=multi-user.target
 
 [Service]
-ExecStart=/usr/bin/python3 /home/pi/blink.py
+ExecStart=/usr/bin/python3 /home/pi/advantech.py
 
 [Install]
 WantedBy=multi-user.target
@@ -138,12 +138,12 @@ Các lệnh.
 ```
 sudo systemctl daemon-reload
 
-sudo systemctl enable clock.service
+sudo systemctl enable advantech.service
 
-systemctl status clock.service
+systemctl status advantech.service
 
-sudo systemctl stop clock.service
-sudo systemctl start clock.service
+sudo systemctl stop advantech.service
+sudo systemctl start advantech.service
 ```
 ```
 Chương trình này ta dung tên advantech.service
@@ -151,5 +151,5 @@ Chương trình này ta dung tên advantech.service
 ```
 
 
-Điều này có thể hữu ích để khởi động lại một dịch vụ nếu bạn đã thay đổi dịch vụ mà không phải khởi động lại hệ thống. Chỉ cần nhớ chạy sudo systemctl daemon-reloadnếu bạn thực hiện bất kỳ thay đổi nào đối với tệp .service!
+Điều này có thể hữu ích để khởi động lại một dịch vụ nếu bạn đã thay đổi dịch vụ mà không phải khởi động lại hệ thống. Chỉ cần nhớ chạy sudo systemctl daemon-reload nếu bạn thực hiện bất kỳ thay đổi nào đối với tệp .service!
 

@@ -11,7 +11,7 @@ class button(threading.Thread):
         threading.Thread.__init__(self)
         print("Serveer init")
     def changeIP(self):
-        print "Change IP"
+        print ("Change IP")
         os.system('sudo ifconfig eth0 down')
         os.system('sudo ifconfig eth0 192.168.135.10')
         os.system('sudo ifconfig eth0 up')
@@ -27,7 +27,7 @@ class button(threading.Thread):
                     while GPIO.input(pin) == GPIO.LOW:
                         time.sleep(0.01)
                     self.length = time.time() - start
-                    print "time press ", self.length
+                    print("time press ", self.length)
                 if self.length > 3:
                     self.length = 0
                     changeIP()

@@ -59,16 +59,16 @@ def load_database():
             for row in results:
                 if name=="Serial_Raspberry":
                     ma_serial = row[0]
-                    print "Ma serial ",ma_serial
+                    print ("Ma serial ",ma_serial)
                 elif name=="infor_network_wifi":
                     Variable.wifi_ip_address, Variable.wifi_ip_gateway, Variable.ssid, Variable.wpa_password = row[0], row[1], row[3], row[4]
-                    print " WIFI " ,Variable.wifi_ip_address, Variable.wifi_ip_gateway, Variable.ssid, Variable.wpa_password
+                    print (" WIFI " ,Variable.wifi_ip_address, Variable.wifi_ip_gateway, Variable.ssid, Variable.wpa_password)
                 elif name == "infor_network":
                     Variable.ip_address,Variable.ip_gateway,Variable.ip_subnet = row[0], row[1],  row[2]
-                    print " WIRE ", Variable.ip_address,Variable.ip_gateway,Variable.ip_subnet
+                    print (" WIRE ", Variable.ip_address,Variable.ip_gateway,Variable.ip_subnet)
                 elif name=="mqttConf":
                     Variable.mqttServer,Variable.mqttPort,Variable.mqttUser,Variable.mqttPass,Variable.mqttTopicSub1,Variable.mqttTopicSub2,Variable.mqttTopicPub1,Variable.mqttTopicPub2=row[0],int(row[1]),row[2],row[3],row[4],row[5],row[6],row[7]
-                    print " MQTT ", Variable.mqttServer,Variable.mqttPort,Variable.mqttUser,Variable.mqttPass,Variable.mqttTopicSub1,Variable.mqttTopicSub2,Variable.mqttTopicPub1,Variable.mqttTopicPub2
+                    print (" MQTT ", Variable.mqttServer,Variable.mqttPort,Variable.mqttUser,Variable.mqttPass,Variable.mqttTopicSub1,Variable.mqttTopicSub2,Variable.mqttTopicPub1,Variable.mqttTopicPub2)
                 variable_loadata=variable_loadata+1
             if variable_loadata==0:
                 print("Inser table {}: ".format(name))
@@ -86,7 +86,7 @@ def delete_db():
             cursor.execute(sql)
             db.commit()
         except:
-            print "already exists."
+            print ("already exists.")
             db.rollback()
     db.close()
 def update_database(table):

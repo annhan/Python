@@ -35,5 +35,5 @@ if __name__ == '__main__':
         while (1):
             time.sleep(5.0)
     except KeyboardInterrupt:
-        print "thoat chuong trinh"
+        print("thoat chuong trinh")
         pass
