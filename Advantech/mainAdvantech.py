@@ -22,7 +22,9 @@ class server(threading.Thread):
         app.config['debug'] = True
         from waitress import serve
         serve(app, host="0.0.0.0", port=8080)
-if __name__ == '__main__':
+def main():
+    #listOfGlobals = globals()
+    #listOfGlobals['bien'] = 11
     try:
         load_database()
         FlaskWeb = server()
@@ -37,3 +39,5 @@ if __name__ == '__main__':
     except KeyboardInterrupt:
         print("thoat chuong trinh")
         pass
+if __name__ == '__main__':
+    main()

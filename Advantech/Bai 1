@@ -1,0 +1,42 @@
+https://kipalog.com/posts/Gioi-thieu-ve-python-descriptor
+
+1. descriptor
+Descriptor cho phép chúng ta bind cách xử lý truy cập của một thuộc tính trong class A với một class B khác. Nói cách khác, nó cho phép đưa việc truy cập thuộc tính ra ngoài class. Sau đây là cách cài đặt đối với bài toán của chúng ta
+
+class NonNegativeDescriptor(object):
+    def __init__(self, label):
+        self.label = label
+
+    def __get__(self, instance, owner):
+        return instance.__dict__.get(self.label)
+
+    def __set__(self, instance, value):
+        if value > 0:
+            instance.__dict__[self.label] = value
+        else:
+            raise ValueError("Negative value not allowed: %s" % age)
+
+
+class Programmer(object):
+    age = NonNegativeDescriptor('age')
+    salary = NonNegativeDescriptor('salary')
+    rating = NonNegativeDescriptor('rating')
+
+    def __init__(self, name, age, salary, rating):
+        self.name = name
+        self.age = age
+        self.salary = salary
+        self.rating = rating
+>>> kiennt = Programmer('kiennt', 26, 500, 5)
+>>> print kiennt.age
+>>> kiennt.age = 20
+NonNegativeDescriptor là một descriptor vì class này cài đặt 2 phương thức __get__ và __set__. Python nhận ra một class là descriptor nếu như class đó implement một trong 3 phương thức.
+
+__get__: Nhận 2 tham số instance và owner. instance là instance của class mà Descriptor được bind tới. owner là class của instance. Trong trường hợp, không có instance nào được gọi, owner sẽ là None.
+__set__: Nhận 2 tham số instance và value. instance có ý nghĩa như trong __get__, value là giá trị muốn set cho thuộc tính của instance
+__delete__: Nhận 1 tham số instance
+
+Trong class Programmer, chúng ta tạo ra 3 Descriptor ở mức class là age, salary và rating.
+Khi gọi print kiennt.age, python sẽ nhận ra age là một descriptor, nên nó sẽ gọi đến hàm __get__ của descriptor NonNegativeDescriptor.__get__(kiennt, Programmer). Tương tự khi gán giá trị cho kiennt.age = 20, hàm __set__ của descriptor cũng được gọi NonNegativeDescriptor.__set__(kiennt, 20).
+
+Nếu chúng ta gọi Programmer.age, thì hàm __get__ sẽ được gọi với owner = None.

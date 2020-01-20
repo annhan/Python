@@ -111,3 +111,8 @@ class Test(threading.Thread):
                 rc = mqttc.run()
             except:
                 time.sleep(1)
+def main():
+    mqttClient = Test()
+    mqttClient.start()
+if __name__ == '__main__':
+    main()
