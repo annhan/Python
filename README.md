@@ -1,4 +1,12 @@
 ------------------------------
+Advantech
+---------------------------------
+- Làm MQTT Server cho các thiết bị Advantech.
+- Webserver: dùng Flask cho cài đặt thông số manghj.
+- Button dung cho cài IP mặc định khi quên.
+- SQL: lưu thông tin wifi, mạng, setting
+
+------------------------------
 Install mySQL
 ---------------------------------
 ```
