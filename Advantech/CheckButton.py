@@ -36,3 +36,8 @@ class button(threading.Thread):
                 pass
                 time.sleep(0.2)
         GPIO.cleanup()  # clean up after yourself
+def main():
+    buttonChangeIp = button()
+    buttonChangeIp.start()
+if __name__ == '__main__':
+    main()
