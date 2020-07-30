@@ -1,5 +1,5 @@
-# -*- coding: utf8 -*-
 #!/usr/bin/python
+# -*- coding: utf8 -*-
 #chạy pip install waitress
 #    from waitress import serve
 #    serve(app, host="0.0.0.0", port=8080)
