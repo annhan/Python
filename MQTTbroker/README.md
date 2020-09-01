@@ -13,6 +13,7 @@ sudo cp -R * /usr/local/
 
 ```node -v ``` check for install success
 
+sudo npm install npm@latest -g
 
 # install mosca
 
