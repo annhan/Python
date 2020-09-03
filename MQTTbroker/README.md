@@ -13,6 +13,7 @@ sudo cp -R * /usr/local/
 
 ```node -v ``` check for install success
 
+sudo npm install npm@latest -g
 
 # install mosca
 
@@ -32,6 +33,7 @@ https://www.npmjs.com/package/mosca
 ```
 mkdir nodeapp
 nano server.js
+
 ```
 
 và pase đoạn code này vào
@@ -61,6 +63,7 @@ function setup() {
     console.log('Mosca MQTT server is up and running at ' + settings.port);
 }
   ```
+```npm init ```
 ```npm run server```
 
   - Vì sao chọn Mosca thay vì dung mosquitto : là mosca có thể được nhúng dễ dàng trong file js khác, từ đó ta có thể tùy biến data trực tiếp trên broker.
